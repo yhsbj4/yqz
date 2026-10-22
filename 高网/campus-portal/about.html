@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于项目 - 东软校园信息服务平台</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <div class="brand">
+          <span class="brand-badge">DS</span>
+          <div class="brand-copy">
+            <strong>东软校园</strong>
+            <small>信息服务平台</small>
+          </div>
+        </div>
+        <button class="nav-toggle" aria-label="主导航">☰</button>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="index.html">首页</a>
+          <a href="news.html">校园新闻</a>
+          <a href="courses.html">课程平台</a>
+          <a href="profile.html">个人中心</a>
+          <a href="admin.html">后台管理</a>
+          <a class="active" href="about.html">关于</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-button" data-theme-toggle aria-label="切换主题">☾</button>
+          <a href="login.html" class="btn btn-primary">登录</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page">
+      <div class="page-header">
+        <h1>关于项目</h1>
+      </div>
+
+      <section class="panel">
+        <h2>项目简介</h2>
+        <p class="page-note">本项目以智慧校园信息服务为主题，围绕学生学习、活动发布、课程展示与后台管理等核心场景展开构建，目标是提升校园信息获取效率，推动资源整合与校内服务数字化。</p>
+        <div class="feature-grid" style="margin-top: 22px;">
+          <article class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>设计目标</h3>
+            <p class="page-note">实现现代化校园门户风格，突出清晰导航、信息聚合和可持续扩展能力。</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>技术要点</h3>
+            <p class="page-note">结合 flex 与 grid 布局、数据驱动渲染和交互式导航，体现课程要求中的前端设计实践。</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <h3>扩展方向</h3>
+            <p class="page-note">后续可接入真实数据库、账号系统与教师/学生双端权限管理，逐步升级为数字校园平台。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <script src="assets/mock-data.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

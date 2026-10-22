@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    border: none;
+    display: block;
+    width: 100%;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    
+}
+/*并集选择器*/
+.list1，.list2{
+    display: flex;
+    /*flex-wrap: wrap换行*/
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    /*li之间的间隔*/
+    gap: 10px;
+    margin-top: 20px;
+}
+.list2 p{
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(99,100,255,0.8);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    /*垂直居中*/
+    line-height: 36px;
+    height: 36px;
+}
+.list1 li{
+    /*flex函数不缩放，每项占25%，基础间距是10px*/
+    flex: 0 0 calc(25% - 10px);
+}
+.list1 li a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.list1 li a p{
+    text-align: center;
+    /*设置图片上方的文字高度*/  
+    height: 36px;
+    /*当height和line-height相等时，文本垂直居中*/
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.list2 li{
+    position: relative;
+   
+}
+.list2 li a, .list2 li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.list1 img{
+    transition: all .6s linear;
+}
+.list1 li:hover img{
+    transform: scale(1.5);
+}
+.list2 img{
+    transition: all .6s linear;
+}
+.list1 li:hover img{
+    transform: scale(1.5);
+}
+.list2 li:hover p{
+    height: 96px;   
+}
+.list2 li:hover img{
+    transform: scale(1.5);
+}
+.list2 li:hover p{
+    height: 96px;   
+}
+/*nth-child(odd) 奇数的孩子2*/
+.list2 li:nth-child(odd) p{
+   height: 100%;
+   font-size: normal;
+   color: yellow;
+}

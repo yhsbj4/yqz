@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    /*width和height设置为100%是为了让背景图片铺满整个页面*/
+    box-sizing: border-box;
+
+ }
+ body{
+    background-color:  yellow;
+    font-family: "微软雅黑";
+    color: blue;
+    width: 1200px;
+    margin: 40px auto;
+ }
+
+ .container-title{
+    color:black;
+ }
+ h2{
+   color:white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    padding: 10px 20px;
+    border: 2px dotted white;
+ }
+ #card-wrap{
+   background-color: orange;
+
+ }
+ .card-wrap{
+   background-color: pink;
+   padding: 20px;
+ }

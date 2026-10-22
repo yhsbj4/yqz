@@ -1,0 +1,19 @@
+# 操作系统
+Thumbs.db
+.DS_Store
+desktop.ini
+ehthumbs.db
+
+# IDE / 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 日志与临时
+*.log
+__pycache__/
+*.pyc
+
+# 本地 http server 输出
+server.out

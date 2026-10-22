@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="原创小说阅读与发现平台，提供分类、榜单、书籍详情和沉浸式阅读示例。" />
+    <title>番茄小说 - 发现好故事</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true"></div>
+          <div class="brand-text">
+            <strong>番茄小说</strong>
+            <small>免费小说阅读</small>
+          </div>
+        </div>
+
+        <nav class="site-nav" aria-label="主导航">
+          <a class="active" href="index.html">首页</a>
+          <a href="category.html">分类</a>
+          <a href="ranking.html">排行榜</a>
+          <a href="bookshelf.html">书架</a>
+        </nav>
+
+        <div class="nav-actions">
+          <label class="header-search">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" placeholder="搜书名、作者" data-search-input aria-label="搜索小说" />
+          </label>
+          <a href="login.html" class="primary-btn">登录</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page">
+      <section class="hero">
+        <div class="hero-main">
+          <div class="hero-copy">
+            <span class="hero-kicker">本周人气连载 · 玄幻</span>
+            <h1>山海巡夜人</h1>
+            <p>每逢子夜，旧城巷口便会出现一盏不该亮起的灯。一张旧船票，牵出一段山海之间的守夜往事。</p>
+            <div class="hero-meta"><span>作者：纸灯照夜</span><span>连载中 · 今日更新</span></div>
+            <div class="hero-actions">
+              <a href="detail.html?book=%E5%B1%B1%E6%B5%B7%E5%B7%A1%E5%A4%9C%E4%BA%BA" class="primary-btn">立即阅读 <span aria-hidden="true">→</span></a>
+              <a href="category.html" class="hero-plain-link">发现更多好书</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-label="山海巡夜人原创书籍封面">
+            <div class="hero-orbit"></div>
+            <div class="hero-cover">
+              <span>原创精品</span>
+              <strong>山海<br />巡夜人</strong>
+              <small>纸灯照夜 著</small>
+            </div>
+            <span class="hero-art-caption">热血成长 · 东方幻想</span>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <section class="quick-rank">
+            <div class="quick-rank-head"><strong>编辑精选</strong><a href="ranking.html">完整榜单 ›</a></div>
+            <a class="quick-book" href="detail.html?book=%E6%98%9F%E6%B2%B3%E5%BD%BC%E5%B2%B8"><span class="quick-cover cover-purple">星河</span><span><strong>星河彼岸</strong><small>科幻 · 末世求生</small></span></a>
+            <a class="quick-book" href="detail.html?book=%E5%B1%B1%E6%B5%B7%E5%B7%A1%E5%A4%9C%E4%BA%BA"><span class="quick-cover cover-green">山海</span><span><strong>山海巡夜人</strong><small>悬疑 · 东方奇谭</small></span></a>
+            <a class="quick-book" href="detail.html?book=%E9%95%BF%E9%A3%8E%E6%B8%A1%E6%9C%88"><span class="quick-cover cover-blue">长风</span><span><strong>长风渡月</strong><small>古言 · 高人气连载</small></span></a>
+          </section>
+          <div class="daily-note"><span class="daily-note-icon">✦</span><span><strong>每日上新</strong><small>好故事，每天都有新发现</small></span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><h2>热门分类</h2><p>按兴趣探索下一本好书</p></div><a href="category.html" class="more-link">全部分类 ›</a></div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="section shelf-section">
+        <div class="section-head"><div><h2>为你推荐</h2><p>正在被读者喜欢的故事</p></div><a href="category.html" class="more-link">更多好书 ›</a></div>
+        <div class="book-grid" id="bookGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><h2>人气排行榜</h2><p>大家都在读什么</p></div><a href="ranking.html" class="more-link">查看完整榜单 ›</a></div>
+        <div class="rank-grid" id="rankGrid"></div>
+      </section>
+
+      <footer class="site-footer"><a href="index.html" class="footer-brand">番茄小说</a><span>发现好故事 · 本地原创课程设计演示</span><a href="profile.html">个人中心</a><a href="admin.html">内容管理</a><a href="about.html">关于本项目</a></footer>
+    </main>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>

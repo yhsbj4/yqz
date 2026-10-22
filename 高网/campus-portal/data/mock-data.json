@@ -1,0 +1,79 @@
+{
+  "stats": [
+    { "label": "在校总人数", "value": "23608", "delta": "+4.8%" },
+    { "label": "课程资源", "value": "3842", "delta": "+12.1%" },
+    { "label": "待办事项", "value": "29", "delta": "-3.4%" },
+    { "label": "活跃用户", "value": "18176", "delta": "+8.2%" }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "category": "要闻",
+      "tag": "primary",
+      "title": "我校成功举办2026届校园创新创业成果展示周",
+      "meta": "2026-10-10 · 资讯中心",
+      "excerpt": "本次活动汇集了近200个项目，展示了人工智能、数字媒体与智能制造等领域的新成果。"
+    },
+    {
+      "id": 2,
+      "category": "通知",
+      "tag": "warning",
+      "title": "关于开展秋季学期学生心理健康服务月活动的通知",
+      "meta": "2026-10-08 · 学工部",
+      "excerpt": "为进一步加强心理健康教育和服务，学校将联合社团开展系列主题沙龙与预约咨询。"
+    },
+    {
+      "id": 3,
+      "category": "活动",
+      "tag": "success",
+      "title": "“青春筑梦·向阳成长”校友回访交流会圆满举办",
+      "meta": "2026-10-06 · 校友联络处",
+      "excerpt": "来自不同专业的校友围绕职业成长、创业路径和职场适应等议题进行了深入交流。"
+    },
+    {
+      "id": 4,
+      "category": "公告",
+      "tag": "info",
+      "title": "宿舍网络及设备维修服务时间调整通知",
+      "meta": "2026-10-04 · 后勤保障处",
+      "excerpt": "为更好服务广大师生，本学期宿舍网络和设施维修服务将采用预约制。"
+    }
+  ],
+  "courses": [
+    { "title": "高级网页设计", "teacher": "张老师", "hours": "48课时", "progress": 76, "tag": "设计课程" },
+    { "title": "JavaScript前端开发", "teacher": "王老师", "hours": "40课时", "progress": 58, "tag": "编程课程" },
+    { "title": "UI交互与原型设计", "teacher": "李老师", "hours": "32课时", "progress": 82, "tag": "实践课程" },
+    { "title": "数据可视化与分析", "teacher": "陈老师", "hours": "36课时", "progress": 63, "tag": "数据课程" },
+    { "title": "移动端应用开发", "teacher": "周老师", "hours": "50课时", "progress": 88, "tag": "移动课程" },
+    { "title": "前端工程化实战", "teacher": "徐老师", "hours": "44课时", "progress": 70, "tag": "工程课程" }
+  ],
+  "events": [
+    "校园招聘信息发布",
+    "算法竞赛报名截止",
+    "新生入学培训安排",
+    "学习发展中心开放日"
+  ],
+  "profile": {
+    "name": "杨澄",
+    "major": "数字媒体技术",
+    "grade": "2026级 · 大三",
+    "email": "yangcheng@dlsu.edu.cn",
+    "phone": "138****0452",
+    "bio": "热爱交互设计与前端开发，正在探索可持续与智能化校园信息服务经验。"
+  },
+  "admin": {
+    "cards": [
+      { "label": "新增用户", "value": "1,284" },
+      { "label": "活跃课程", "value": "92%" },
+      { "label": "已解决工单", "value": "794" },
+      { "label": "本周访问量", "value": "28.6k" }
+    ],
+    "chart": [46, 62, 48, 74, 86, 68, 92],
+    "table": [
+      { "name": "AI创新实验室", "status": "进行中", "tag": "success" },
+      { "name": "新生学习指导计划", "status": "待审核", "tag": "warning" },
+      { "name": "电子资源更新", "status": "已完成", "tag": "info" },
+      { "name": "通识课课程维护", "status": "待处理", "tag": "warning" }
+    ]
+  }
+}

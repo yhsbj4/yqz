@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>东软校园信息服务平台</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <div class="brand">
+          <span class="brand-badge">DS</span>
+          <div class="brand-copy">
+            <strong>东软校园</strong>
+            <small>信息服务平台</small>
+          </div>
+        </div>
+
+        <button class="nav-toggle" aria-label="主导航">☰</button>
+
+        <nav class="site-nav" aria-label="主导航">
+          <a class="active" href="index.html">首页</a>
+          <a href="news.html">校园新闻</a>
+          <a href="courses.html">课程平台</a>
+          <a href="profile.html">个人中心</a>
+          <a href="admin.html">后台管理</a>
+          <a href="about.html">关于</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-button" data-theme-toggle aria-label="切换主题">☾</button>
+          <a href="login.html" class="btn btn-primary">登录</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="hero-eyebrow">智慧校园 · 一站式服务</span>
+          <h1>为每位学生构建更高效的校园学习与生活体验。</h1>
+          <p>在这里，您可以查看校园通知、学习资源、课程安排、活动资讯和个人数据中心，实现校园信息的智能整合与便捷管理。</p>
+          <div class="hero-actions">
+            <a href="news.html" class="btn btn-primary">查看最新资讯</a>
+            <a href="courses.html" class="btn btn-secondary">进入课程平台</a>
+          </div>
+          <div class="search-box">
+            <span>🔎</span>
+            <input type="text" placeholder="搜索课程、活动、资源或公告" data-search-input />
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <h3>今日校园动态</h3>
+          <div class="mini-stat">
+            <span>在线人数</span>
+            <strong>18,694</strong>
+            <small>较昨日 +8.2%</small>
+          </div>
+          <div class="mini-stat">
+            <span>待办事项</span>
+            <strong>29</strong>
+            <small>其中 6 项待确认</small>
+          </div>
+          <div class="mini-stat">
+            <span>新资源</span>
+            <strong>126</strong>
+            <small>本周更新</small>
+          </div>
+        </aside>
+      </section>
+
+      <section class="stats-grid" id="statsGrid"></section>
+
+      <section class="content-grid">
+        <div class="panel">
+          <div class="section-head">
+            <h2>校园要闻</h2>
+            <a href="news.html" class="more-link">更多资讯</a>
+          </div>
+          <div class="news-list" id="homeNewsList"></div>
+        </div>
+
+        <aside class="side-stack">
+          <div class="side-card">
+            <h3>校园日历</h3>
+            <ul id="eventList"></ul>
+          </div>
+
+          <div class="side-card">
+            <h3>热门专题</h3>
+            <ul>
+              <li class="focus-item"><span>AI与创新实践</span><span class="tag success">热</span></li>
+              <li class="focus-item"><span>学生就业指导</span><span class="tag warning">荐</span></li>
+              <li class="focus-item"><span>数字校园建设</span><span class="tag primary">新</span></li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel" style="margin-top: 24px;">
+        <div class="section-head">
+          <h2>应用功能</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>课程管理</h3>
+            <p class="page-note">支持学习计划、课表查看与在线作业管理，帮助学生更高效安排学习节奏。</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🏫</div>
+            <h3>校园活动</h3>
+            <p class="page-note">汇总讲座、比赛、志愿服务和校友交流等多类活动信息，增强校园参与感。</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>个性设置</h3>
+            <p class="page-note">支持提醒设置、隐私管理和界面体验定制，满足多场景使用需求。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <script src="assets/mock-data.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

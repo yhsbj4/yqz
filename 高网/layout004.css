@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    font-size: 40px;
+}
+
+.header {
+    min-width: 1200px;
+    height: 90px;
+    background-color: rgb(45, 23, 255);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.logo,
+.login {
+    font-size: 24px;
+}
+
+nav {
+    height: 60px;
+    background-color: #0f0;
+    margin-bottom: 20px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.warp {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.warp .content-row {
+    display: flex;
+    gap: 20px;
+}
+
+main {
+    background-color: rgb(255, 0, 0);
+    height: 300px;
+    width: 780px;
+    flex: 1;
+}
+
+aside {
+    background-color: rgb(0, 255, 255);
+    height: 300px;
+    width: 400px;
+}
+
+footer {
+    height: 80px;
+    background-color: rgb(255, 255, 0);
+    line-height: 80px;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+}
+
+.fixed-ad {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    z-index: 5;
+    background-color: rgb(255, 0, 255);
+    text-align: center;
+    line-height: 200px;
+}
+
+
+

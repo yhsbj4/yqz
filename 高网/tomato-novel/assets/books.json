@@ -1,0 +1,14 @@
+{
+  "books": [
+    { "title": "山海巡夜人", "type": "悬疑", "author": "纸灯照夜", "status": "连载", "chapters": 326, "desc": "每逢子夜，旧城巷口便会出现一盏不该亮起的灯。", "color": "green", "score": "9.8分" },
+    { "title": "长风渡月", "type": "古言", "author": "南枝客", "status": "连载", "chapters": 218, "desc": "一封迟到十年的家书，牵出两代人的江湖旧事。", "color": "blue", "score": "9.6分" },
+    { "title": "星河彼岸", "type": "科幻", "author": "林间电波", "status": "连载", "chapters": 492, "desc": "人类第一次收到来自星海深处的回信。", "color": "purple", "score": "9.7分" },
+    { "title": "雾海来信", "type": "悬疑", "author": "白鲸先生", "status": "连载", "chapters": 174, "desc": "海雾散去后，岛上每个人都收到了一封信。", "color": "teal", "score": "9.5分" },
+    { "title": "春日来信", "type": "言情", "author": "七分甜", "status": "完结", "chapters": 108, "desc": "从一场雨开始的故事，在盛夏里有了答案。", "color": "pink", "score": "9.4分" },
+    { "title": "云上便利店", "type": "都市", "author": "晚风汽水", "status": "连载", "chapters": 265, "desc": "凌晨两点营业的小店，收藏着城市里的温柔。", "color": "orange", "score": "9.6分" },
+    { "title": "拾光事务所", "type": "都市", "author": "木子由", "status": "连载", "chapters": 199, "desc": "替人寻找遗失记忆的事务所，迎来一位特殊客人。", "color": "red", "score": "9.3分" },
+    { "title": "青崖问道", "type": "玄幻", "author": "山中客", "status": "连载", "chapters": 580, "desc": "山门之外，少年带着一把旧剑走入天地之间。", "color": "gold", "score": "9.7分" },
+    { "title": "夏夜观测站", "type": "青春", "author": "柠檬海", "status": "完结", "chapters": 96, "desc": "一群年轻人在海边天文台，记录夏夜与成长。", "color": "sky", "score": "9.5分" },
+    { "title": "纸城旧梦", "type": "悬疑", "author": "闻钟", "status": "连载", "chapters": 142, "desc": "一座地图上不存在的城，住着记得所有往事的人。", "color": "slate", "score": "9.2分" }
+  ]
+}

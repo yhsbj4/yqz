@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录 - 东软校园信息服务平台</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <main class="container page">
+      <div class="login-shell">
+        <div class="logo">DS</div>
+        <h2 style="text-align: center;">欢迎登录</h2>
+        <form class="login-form">
+          <div class="field">
+            <label>账号</label>
+            <input type="text" placeholder="请输入学号/工号" />
+          </div>
+          <div class="field">
+            <label>密码</label>
+            <input type="password" placeholder="请输入密码" />
+          </div>
+          <button type="button" class="btn btn-primary" onclick="location.href='index.html'">登录平台</button>
+          <div class="login-footer">
+            <label class="check-row"><input type="checkbox" checked />记住我</label>
+            <a href="about.html" class="more-link">忘记密码？</a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="assets/mock-data.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

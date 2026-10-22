@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人中心 - 东软校园信息服务平台</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <div class="brand">
+          <span class="brand-badge">DS</span>
+          <div class="brand-copy">
+            <strong>东软校园</strong>
+            <small>信息服务平台</small>
+          </div>
+        </div>
+        <button class="nav-toggle" aria-label="主导航">☰</button>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="index.html">首页</a>
+          <a href="news.html">校园新闻</a>
+          <a href="courses.html">课程平台</a>
+          <a class="active" href="profile.html">个人中心</a>
+          <a href="admin.html">后台管理</a>
+          <a href="about.html">关于</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-button" data-theme-toggle aria-label="切换主题">☾</button>
+          <a href="login.html" class="btn btn-primary">登录</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page">
+      <div class="page-header">
+        <h1>个人中心</h1>
+      </div>
+
+      <div class="profile-layout">
+        <aside class="panel profile-card" id="profileCard"></aside>
+
+        <section class="panel">
+          <div class="section-head">
+            <h2>个人设置</h2>
+            <button class="btn btn-primary">保存更改</button>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label>姓名</label>
+              <input type="text" value="杨澄" />
+            </div>
+            <div class="field">
+              <label>专业</label>
+              <input type="text" value="数字媒体技术" />
+            </div>
+            <div class="field">
+              <label>邮箱</label>
+              <input type="email" value="yangcheng@dlsu.edu.cn" />
+            </div>
+            <div class="field">
+              <label>手机号</label>
+              <input type="tel" value="138****0452" />
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+              <label>个人简介</label>
+              <textarea>热爱交互设计与前端开发，正在探索可持续与智能化校园信息服务经验。</textarea>
+            </div>
+          </div>
+
+          <div class="section-head" style="margin-top: 24px;">
+            <h3>通知与隐私</h3>
+          </div>
+          <div class="switch-row">
+            <span>消息推送</span>
+            <button class="switch active" aria-label="消息推送开关"></button>
+          </div>
+          <div class="switch-row">
+            <span>深色模式</span>
+            <button class="switch" aria-label="深色模式开关"></button>
+          </div>
+          <div class="switch-row">
+            <span>隐私保护模式</span>
+            <button class="switch active" aria-label="隐私保护模式开关"></button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <button class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <script src="assets/mock-data.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
