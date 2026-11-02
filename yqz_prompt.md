@@ -67,3 +67,60 @@
 创建skill:提交项目：使用git commit并push当前项目到``https://gitee.com/neusoft_wangyao_jsj/wangyao2026.git``
 ```
 
+---
+
+### 2026-10-22 14:55:00
+- **模型**：GLM-5.2
+- **提示词**：
+```
+创建skill:提交项目：使用git commit并push到gitee仓库，
+gitee私人令牌 fe29dad8a34d1ccd46a6a96c4661baab
+仓库地址:`https://gitee.com/yan-qizhi/advanced-web-design`
+```
+
+---
+
+### 2026-11-02
+- **模型**：DeepSeek-V4.1-Flash
+- **提示词**：
+```
+AGENTS.md 所有说明、检查条目统一简体中文；文件路径、HTML、CSS、JS 标识符保留英文。后续在这个项目里，生成文档、检查清单都遵守这条约定。
+```
+
+---
+
+### 2026-11-02 续
+- **模型**：DeepSeek-V4.1-Flash
+- **提示词**：
+```
+请给我新建一个html文件，显示tab选项卡，选项卡分别为国内新闻、省内新闻、国际新闻、最热新闻，国内新闻作为默认选项。就是、文件单独放在js文件夹中，外部引用，js部分tab选项卡可复用。实现代码中包含事件监听，清除所有选项卡的选中状态再设置当前元素的选中状态。
+```
+
+---
+
+### 2026-11-02 续
+- **模型**：DeepSeek-V4.1-Flash
+- **提示词**：
+```
+把wy全部替换成闫启智
+```
+
+---
+
+### 2026-11-02 续
+- **模型**：DeepSeek-V4.1-Flash
+- **提示词**：
+```
+创建一个ssh公钥
+```
+
+---
+
+### 2026-11-02 续
+- **模型**：DeepSeek-V4.1-Flash
+- **提示词**：
+```
+创建技能skill：提交到github，将本项目提交commit并push到`https://github.com/yhsbj4/yqz.git`，使用已设置公钥。
+```
+
+

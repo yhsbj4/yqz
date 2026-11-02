@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学生成绩分析面板 · 目标效果</title>
+<style>
+  /* 样式与 target.html 保持一致，方便一比一对照还原 */
+  :root{
+    --bg-1:#1a1c2c; --bg-2:#243b55;
+    --card:#ffffff; --card-soft:rgba(255,255,255,.92);
+    --ink:#1f2733; --ink-soft:#5b6472; --line:#e7eaf0;
+    --primary:#5b7cfa; --primary-d:#3f5fd9;
+    --accent:#21d4b4; --warn:#ff7a59; --gold:#f5b945; --rose:#ff5d8f;
+    --radius:14px; --shadow:0 10px 30px rgba(20,28,48,.18);
+    --shadow-sm:0 4px 14px rgba(20,28,48,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+    background:linear-gradient(135deg,var(--bg-1),var(--bg-2));min-height:100vh;color:var(--ink);line-height:1.6;padding:24px}
+  .wrap{max-width:1180px;margin:0 auto}
+  header.head{background:var(--card-soft);border-radius:var(--radius);padding:22px 26px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+  .head h1{font-size:22px;display:flex;align-items:center;gap:10px}
+  .head h1 .logo{width:38px;height:38px;border-radius:11px;flex:none;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;color:#fff;font-weight:700}
+  .head .sub{color:var(--ink-soft);font-size:13px}
+  .tag-level{font-size:12px;font-weight:700;color:#fff;background:var(--primary);padding:4px 10px;border-radius:20px}
+  section.block{background:var(--card);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+  .block-title{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:16px;color:var(--ink)}
+  .block-title::before{content:"";width:4px;height:16px;border-radius:3px;background:var(--primary)}
+  .block-title .hint{font-weight:400;color:var(--ink-soft);font-size:12px}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat-card{background:linear-gradient(135deg,#f6f8ff,#fff);border:1px solid var(--line);border-radius:12px;padding:16px 18px;position:relative;overflow:hidden}
+  .stat-card .stat-value{font-size:30px;font-weight:800;color:var(--primary);line-height:1.2}
+  .stat-card .stat-label{font-size:13px;color:var(--ink-soft);margin-top:4px}
+  .stat-card .stat-unit{font-size:14px;color:var(--ink-soft);font-weight:600;margin-left:3px}
+  .stat-card.accent .stat-value{color:var(--accent)}
+  .stat-card.warn .stat-value{color:var(--warn)}
+  .stat-card.gold .stat-value{color:var(--gold)}
+  .controls{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+  .search-box{position:relative;flex:1;min-width:220px}
+  .search-box input{width:100%;padding:11px 14px 11px 38px;border:1px solid var(--line);border-radius:10px;font-size:14px;outline:none;transition:border-color .2s}
+  .search-box input:focus{border-color:var(--primary)}
+  .search-box .ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-soft)}
+  .btn-group{display:flex;gap:6px;background:#eef1f7;padding:4px;border-radius:10px}
+  .btn-group button{border:none;background:transparent;padding:8px 14px;border-radius:7px;font-size:13px;color:var(--ink-soft);cursor:pointer;transition:all .18s}
+  .btn-group button.active{background:#fff;color:var(--primary);font-weight:700;box-shadow:var(--shadow-sm)}
+  .rank-grid{display:grid;grid-template-columns:1fr;gap:14px}
+  .rank-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+  .rank-card h4{font-size:13px;color:var(--ink-soft);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .rank-card h4 .dot{width:8px;height:8px;border-radius:50%;background:var(--primary)}
+  .rank-card.fail h4 .dot{background:var(--warn)}
+  .rank-list{display:flex;flex-direction:column;gap:8px}
+  .rank-row{display:flex;align-items:center;justify-content:space-between;font-size:13px}
+  .rank-row .rk{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:12px}
+  .rank-row .rk{background:#fde9dd;color:#c0602a}
+  .rank-row .nm{flex:1;margin:0 8px;font-weight:600}
+  .rank-row .vl{font-weight:700;color:var(--warn)}
+  .empty{color:var(--ink-soft);font-size:13px;font-style:italic;text-align:center;padding:10px 0}
+  .student-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+  .student-card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;transition:transform .18s,box-shadow .18s;cursor:pointer}
+  .student-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+  .student-card .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .avatar{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;font-size:15px}
+  .avatar.boy{background:linear-gradient(135deg,#5b7cfa,#7a5bfa)}
+  .avatar.girl{background:linear-gradient(135deg,#ff5d8f,#ff8fb1)}
+  .student-card .name{font-weight:700;font-size:15px}
+  .student-card .meta{font-size:12px;color:var(--ink-soft)}
+  .student-card .rank-badge{margin-left:auto;font-size:12px;font-weight:700;color:#fff;background:var(--primary);padding:3px 9px;border-radius:20px}
+  .student-card .rank-badge.gold{background:var(--gold)}
+  .score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}
+  .score-item{text-align:center;background:#f6f8ff;border-radius:8px;padding:6px 2px}
+  .score-item .sbj{font-size:11px;color:var(--ink-soft)}
+  .score-item .val{font-size:14px;font-weight:700}
+  .score-item .val.fail{color:var(--warn)}
+  .score-item .val.full{color:var(--accent)}
+  .student-card .ft{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);padding-top:8px;font-size:13px}
+  .student-card .ft .total{font-weight:800;color:var(--primary)}
+  .student-card .ft .avg{color:var(--ink-soft)}
+  footer.foot{text-align:center;color:rgba(255,255,255,.7);font-size:12px;padding:14px 0}
+  .wrap{max-width:1420px}
+  .head{min-height:112px;padding:26px 30px}
+  section.block{padding:24px 28px}
+  .block-title{font-size:17px}
+  .stat-grid{gap:18px}
+  .stat-card{padding:20px 24px}
+  .stat-card .stat-value{font-size:34px}
+  .controls{gap:14px}
+  .search-box{min-width:240px}
+  .control-groups{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+  .btn-group button{padding:9px 15px}
+  .rank-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .rank-card{padding:18px}
+  .rank-card h4{font-size:15px}
+  .rank-row{gap:8px;font-size:14px}
+  .rank-row .rk{background:#fff3d7;color:#a16b00}
+  .rank-card.fail .rank-row .rk{background:#fde9dd;color:#c0602a}
+  .rank-card .rank-list{gap:12px}
+  .rank-row .nm{margin:0;overflow-wrap:anywhere}
+  .rank-row .vl{white-space:nowrap;color:var(--primary)}
+  .rank-card.fail .rank-row .vl{color:var(--warn)}
+  .alert{border:1px solid #f5d2c8;background:#fff0eb;color:#a95742;border-radius:12px;padding:14px 18px;margin-bottom:18px}
+  .alert.ok{border-color:#bfe9df;background:#edfbf7;color:#217766}
+  .subject-list{display:grid;gap:14px}
+  .subject-row{display:grid;grid-template-columns:120px minmax(80px,1fr) 72px;align-items:center;gap:18px}
+  .subject-name{font-weight:700}
+  .subject-track{height:14px;border-radius:20px;background:#eef1f7;overflow:hidden}
+  .subject-fill{height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--primary),var(--accent));transition:width .25s ease}
+  .subject-average{text-align:right;font-size:20px;font-weight:800}
+  .student-card{padding:16px 18px}
+  .student-card.expanded{border-color:var(--primary)}
+  .student-card .details{display:none;border-top:1px dashed var(--line);margin-top:12px;padding-top:10px;color:var(--ink-soft);font-size:12px}
+  .student-card.expanded .details{display:grid;gap:3px}
+  .student-card .ft{border-top:0;padding-top:4px}
+  @media(max-width:900px){
+    .rank-grid{grid-template-columns:1fr}
+    .control-groups{width:100%;justify-content:space-between}
+    .subject-row{grid-template-columns:90px minmax(60px,1fr) 58px;gap:10px}
+  }
+  @media(max-width:600px){
+    body{padding:14px}
+    section.block{padding:18px}
+    .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .stat-card{padding:14px}
+    .stat-card .stat-value{font-size:27px}
+    .student-grid{grid-template-columns:1fr}
+    .control-groups{justify-content:flex-start}
+    .btn-group button{padding:8px 10px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <h1><span class="logo">分</span>学生成绩分析面板</h1>
+    <div>
+      <span class="tag-level">等级二 · 目标效果</span>
+      <div class="sub">DOM 查找 × 数组方法 × 函数 综合实战</div>
+    </div>
+  </header>
+
+  <!-- 区域1：统计卡片 -->
+  <section class="block">
+    <div class="block-title">班级概览 <span class="hint">getElementById / reduce / map / forEach</span></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-value" id="statCount">0</div><div class="stat-label">班级人数（人）</div></div>
+      <div class="stat-card accent"><div class="stat-value" id="statTotalScore">0</div><div class="stat-label">班级总分</div></div>
+      <div class="stat-card gold"><div class="stat-value" id="statAvgScore">0</div><div class="stat-label">班级平均分</div></div>
+      <div class="stat-card warn"><div class="stat-value" id="statPassRate">0<span class="stat-unit">%</span></div><div class="stat-label">及格率（无不及格科目）</div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-title">各科平均分 <span class="hint">reduce / forEach / querySelector / style</span></div>
+    <div class="subject-list" id="subjectAverages"></div>
+  </section>
+
+  <!-- 区域2：控制区（搜索 + 排序）-->
+  <section class="block">
+    <div class="block-title">数据操作 <span class="hint">filter / sort / querySelectorAll / classList / 事件委托</span></div>
+    <div class="controls">
+      <div class="search-box">
+        <span class="ico">🔍</span>
+        <input type="text" id="searchInput" placeholder="按姓名或学号搜索…">
+      </div>
+      <div class="control-groups">
+        <div class="btn-group" id="sortBtns">
+          <button class="active" data-sort="total">按总分↓</button>
+          <button data-sort="id">按学号↑</button>
+        </div>
+        <div class="btn-group" id="filterBtns">
+          <button class="active" data-filter="all">全部</button>
+          <button data-filter="excellent">优秀</button>
+          <button data-filter="fail">含不及格</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-title">榜单与预警 <span class="hint">filter / sort / slice / map / find / reduce / 节点关系</span></div>
+    <div class="alert" id="classAlert"></div>
+    <div class="rank-grid">
+      <div class="rank-card">
+        <h4><span class="dot"></span>优秀学生 Top3（平均≥85）</h4>
+        <div class="rank-list" id="excellentList"></div>
+      </div>
+      <div class="rank-card">
+        <h4><span class="dot"></span>各科状元</h4>
+        <div class="rank-list" id="subjectLeaders"></div>
+      </div>
+      <div class="rank-card fail">
+        <h4><span class="dot"></span>不及格学生名单</h4>
+        <div class="rank-list" id="failWarningList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 区域4：学生卡片列表 -->
+  <section class="block">
+    <div class="block-title">学生成绩卡片 <span class="hint">forEach / createElement / classList / closest / 节点关系 / 事件委托</span></div>
+    <div class="student-grid" id="studentList"></div>
+  </section>
+
+  <footer class="foot">高级网页设计课堂实践任务 · 学生成绩分析面板 · 目标效果</footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ============================================================
+ * 学生成绩分析面板
+ * 数据来源：window.STUDENTS / window.SUBJECTS（见 data.js）
+ * 数据来源：window.STUDENTS / window.SUBJECTS（见 data.js）
+ * ============================================================ */
+(function () {
+  "use strict";
+  const STUDENTS = window.STUDENTS;
+  const SUBJECTS = window.SUBJECTS;
+
+  const PASS_LINE = 60;
+  const EXCELLENT_AVG = 85;
+
+  function scoreClass(value) {
+    if (value < PASS_LINE) return "fail";
+    if (value >= 100) return "full";
+    return "";
+  }
+
+  function getTotal(student) {
+    return SUBJECTS.reduce(function (total, subject) {
+      return total + student[subject.key];
+    }, 0);
+  }
+
+  function getAvg(student) {
+    return SUBJECTS.length
+      ? Math.round(getTotal(student) / SUBJECTS.length * 10) / 10
+      : 0;
+  }
+
+  function getFails(student) {
+    return SUBJECTS.filter(function (subject) {
+      return student[subject.key] < PASS_LINE;
+    });
+  }
+
+  function firstName(student) {
+    return student.name.charAt(0);
+  }
+
+  function makeElement(tag, className, text) {
+    var element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text !== undefined) element.textContent = text;
+    return element;
+  }
+
+  function showEmpty(container, message) {
+    container.appendChild(makeElement("div", "empty", message));
+  }
+
+  function renderStats(list) {
+    var totalScore = list.reduce(function (total, student) {
+      return total + getTotal(student);
+    }, 0);
+    var totalPossibleScores = list.length * SUBJECTS.length;
+    var avgScore = totalPossibleScores
+      ? Math.round(totalScore / totalPossibleScores)
+      : 0;
+    var passCount = list.filter(function (student) {
+      return getFails(student).length === 0;
+    }).length;
+    var passRate = list.length ? Math.round(passCount / list.length * 100) : 0;
+
+    document.getElementById("statCount").textContent = list.length;
+    document.getElementById("statTotalScore").textContent = totalScore;
+    document.getElementById("statAvgScore").textContent = avgScore;
+    document.getElementById("statPassRate").firstChild.textContent = passRate;
+  }
+
+  function renderSubjectAverages(list) {
+    var container = document.getElementById("subjectAverages");
+    container.textContent = "";
+
+    SUBJECTS.forEach(function (subject) {
+      var total = list.reduce(function (sum, student) {
+        return sum + student[subject.key];
+      }, 0);
+      var average = list.length ? Math.round(total / list.length * 10) / 10 : 0;
+      var row = makeElement("div", "subject-row");
+      var name = makeElement("div", "subject-name", subject.name);
+      var track = makeElement("div", "subject-track");
+      var fill = makeElement("div", "subject-fill");
+      var value = makeElement("div", "subject-average", average.toFixed(1));
+
+      fill.style.width = Math.min(average / subject.full * 100, 100) + "%";
+      track.appendChild(fill);
+      row.appendChild(name);
+      row.appendChild(track);
+      row.appendChild(value);
+      container.appendChild(row);
+    });
+  }
+
+  function renderStudentCards(list) {
+    var container = document.getElementById("studentList");
+    container.textContent = "";
+
+    if (!list.length) {
+      showEmpty(container, "没有符合条件的学生");
+      return;
+    }
+
+    list.forEach(function (student, index) {
+      var card = makeElement("div", "student-card");
+      card.setAttribute("data-id", student.id);
+      var header = makeElement("div", "hd");
+      var avatar = makeElement("div", "avatar " + (student.gender === "女" ? "girl" : "boy"), firstName(student));
+      var identity = makeElement("div");
+      var name = makeElement("div", "name", student.name);
+      var meta = makeElement("div", "meta", student.id + " · " + student.gender);
+      var rank = makeElement("span", "rank-badge" + (index < 3 ? " gold" : ""), "第" + (index + 1) + "名");
+      var scores = makeElement("div", "score-grid");
+      var footer = makeElement("div", "ft");
+      var total = getTotal(student);
+      var average = getAvg(student);
+      var totalLabel = makeElement("span", "total", "总分 " + total);
+      var averageLabel = makeElement("span", "avg", "均分 " + average);
+      var details = makeElement("div", "details");
+      var fails = getFails(student);
+
+      identity.appendChild(name);
+      identity.appendChild(meta);
+      header.appendChild(avatar);
+      header.appendChild(identity);
+      header.appendChild(rank);
+
+      SUBJECTS.forEach(function (subject) {
+        var item = makeElement("div", "score-item");
+        var label = makeElement("div", "sbj", subject.abbr);
+        var value = makeElement("div", "val", student[subject.key]);
+        var className = scoreClass(student[subject.key]);
+        if (className) value.classList.add(className);
+        item.appendChild(label);
+        item.appendChild(value);
+        scores.appendChild(item);
+      });
+
+      footer.appendChild(totalLabel);
+      footer.appendChild(averageLabel);
+      details.appendChild(makeElement("p", "", "学号：" + student.id));
+      details.appendChild(makeElement("p", "", "性别：" + student.gender));
+      details.appendChild(makeElement(
+        "p",
+        "",
+        fails.length ? "不及格科目：" + fails.map(function (subject) { return subject.name; }).join("、") : "状态：全科及格 ✓"
+      ));
+
+      card.appendChild(header);
+      card.appendChild(scores);
+      card.appendChild(footer);
+      card.appendChild(details);
+      container.appendChild(card);
+    });
+  }
+
+  function appendRankRow(container, rank, label, value, isWarning) {
+    var row = makeElement("div", "rank-row");
+    row.appendChild(makeElement("span", "rk", rank));
+    row.appendChild(makeElement("span", "nm", label));
+    row.appendChild(makeElement("span", "vl", value));
+    if (isWarning) row.classList.add("warning-row");
+    container.appendChild(row);
+  }
+
+  function renderExcellentStudents(list) {
+    var container = document.getElementById("excellentList");
+    var topStudents = list.filter(function (student) {
+      return getAvg(student) >= EXCELLENT_AVG;
+    }).sort(function (a, b) {
+      return getAvg(b) - getAvg(a);
+    }).slice(0, 3);
+    container.textContent = "";
+
+    if (!topStudents.length) {
+      showEmpty(container, "暂无优秀学生");
+      return;
+    }
+
+    topStudents.forEach(function (student, index) {
+      appendRankRow(container, index + 1, student.name + "（" + student.id + "）", getAvg(student));
+    });
+  }
+
+  function renderSubjectLeaders(list) {
+    var container = document.getElementById("subjectLeaders");
+    container.textContent = "";
+
+    if (!list.length) {
+      showEmpty(container, "暂无科目数据");
+      return;
+    }
+
+    SUBJECTS.forEach(function (subject) {
+      var leader = list.reduce(function (best, student) {
+        return student[subject.key] > best[subject.key] ? student : best;
+      }, list[0]);
+      var row = makeElement("div", "rank-row");
+      row.appendChild(makeElement("span", "nm", subject.name));
+      row.appendChild(makeElement("span", "nm", leader.name));
+      row.appendChild(makeElement("span", "vl", leader[subject.key]));
+      container.appendChild(row);
+    });
+  }
+
+  function renderFailWarning(list) {
+    var container = document.getElementById("failWarningList");
+    var failures = list.filter(function (student) {
+      return getFails(student).length > 0;
+    }).sort(function (a, b) {
+      return getFails(b).length - getFails(a).length || getTotal(b) - getTotal(a);
+    });
+    container.textContent = "";
+
+    if (!failures.length) {
+      showEmpty(container, "全员通过，无预警");
+      return;
+    }
+
+    failures.forEach(function (student) {
+      var subjectNames = getFails(student).map(function (subject) {
+        return subject.name;
+      }).join("、");
+      appendRankRow(container, getFails(student).length, student.name + "（" + subjectNames + "）", getTotal(student) + "分", true);
+    });
+  }
+
+  function search(keyword) {
+    var query = keyword.replace(/\s+/g, "").toLowerCase();
+    if (!query) return STUDENTS.slice();
+    return STUDENTS.filter(function (student) {
+      return student.name.toLowerCase().indexOf(query) !== -1 ||
+        student.id.toLowerCase().indexOf(query) !== -1;
+    });
+  }
+
+  var currentSort = "total";
+  var currentFilter = "all";
+
+  function sortList(list, by) {
+    return list.slice().sort(function (a, b) {
+      if (by === "id") return a.id.localeCompare(b.id);
+      return getTotal(b) - getTotal(a);
+    });
+  }
+
+  function refresh() {
+    var keyword = document.getElementById("searchInput").value;
+    var filtered = search(keyword).filter(function (student) {
+      if (currentFilter === "excellent") return getAvg(student) >= EXCELLENT_AVG;
+      if (currentFilter === "fail") return getFails(student).length > 0;
+      return true;
+    });
+    var data = sortList(filtered, currentSort);
+    var hasFailures = data.some(function (student) {
+      return getFails(student).length > 0;
+    });
+    var alert = document.getElementById("classAlert");
+
+    renderStats(data);
+    renderSubjectAverages(data);
+    renderStudentCards(data);
+    renderExcellentStudents(data);
+    renderSubjectLeaders(data);
+    renderFailWarning(data);
+    alert.textContent = hasFailures
+      ? "⚠ 班级中存在不及格科目，请关注预警名单中的学生。"
+      : "✓ 当前名单中没有不及格科目。";
+    alert.classList.toggle("ok", !hasFailures);
+  }
+
+  var timer = null;
+  document.getElementById("searchInput").addEventListener("input", function () {
+    clearTimeout(timer);
+    timer = setTimeout(refresh, 200);
+  });
+
+  document.getElementById("sortBtns").addEventListener("click", function (event) {
+    var button = event.target.closest("button[data-sort]");
+    if (!button) return;
+    currentSort = button.getAttribute("data-sort");
+    this.querySelectorAll("button").forEach(function (item) {
+      item.classList.toggle("active", item === button);
+    });
+    refresh();
+  });
+
+  document.getElementById("filterBtns").addEventListener("click", function (event) {
+    var button = event.target.closest("button[data-filter]");
+    if (!button) return;
+    currentFilter = button.getAttribute("data-filter");
+    this.querySelectorAll("button").forEach(function (item) {
+      item.classList.toggle("active", item === button);
+    });
+    refresh();
+  });
+
+  document.getElementById("studentList").addEventListener("click", function (event) {
+    var card = event.target.closest(".student-card");
+    if (card) card.classList.toggle("expanded");
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
