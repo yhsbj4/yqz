@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音乐手机 · 行情导购新品评测</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0 20px 48px;
+      background: #fafafa;
+      color: #222;
+      font-family: "SimSun", "宋体", "Microsoft YaHei", serif;
+    }
+
+    .闫启智_back {
+      display: inline-block;
+      margin: 20px 0 0;
+      color: #777;
+      font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .闫启智_back:hover {
+      color: #1a6fc4;
+      text-decoration: underline;
+    }
+
+    .闫启智_phone-box {
+      width: 600px;
+      max-width: 100%;
+      margin: 24px auto 0;
+      padding: 0 0 8px;
+      background: #fff;
+      border: 1px solid #dce7f0;
+    }
+
+    .闫启智_tab-head {
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      border-bottom: 1px solid #cfe0ef;
+    }
+
+    .闫启智_channel {
+      margin-right: 26px;
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .闫启智_tab-btn {
+      margin-right: 4px;
+      padding: 3px 15px 4px;
+      border: 1px solid #b9d3e8;
+      background: #fff;
+      color: #333;
+      font-family: inherit;
+      font-size: 12px;
+      line-height: 18px;
+      cursor: pointer;
+    }
+
+    .闫启智_tab-btn:hover {
+      color: #1a6fc4;
+      border-color: #7fb0d4;
+    }
+
+    .闫启智_tab-btn:focus-visible {
+      outline: 1px solid #1a6fc4;
+      outline-offset: 1px;
+    }
+
+    .闫启智_tab-btn.闫启智_active {
+      background: #e9f5fd;
+      border-color: #6fa8d0;
+      color: #1b6fb5;
+    }
+
+    .闫启智_tab-panel {
+      display: none;
+      padding: 8px 12px 0;
+    }
+
+    .闫启智_tab-panel.闫启智_active {
+      display: block;
+    }
+
+    .闫启智_news-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .闫启智_news-list li {
+      display: flex;
+      align-items: baseline;
+      padding: 2px 0;
+      font-size: 12px;
+      line-height: 21px;
+    }
+
+    .闫启智_news-list li::before {
+      content: "▪";
+      flex: 0 0 auto;
+      margin-right: 5px;
+      color: #2f81c9;
+      font-size: 12px;
+    }
+
+    .闫启智_news-link {
+      flex: 1 1 auto;
+      color: #1a6fc4;
+      text-decoration: none;
+    }
+
+    .闫启智_news-link:hover {
+      color: #0d4f93;
+      text-decoration: underline;
+    }
+
+    .闫启智_news-date {
+      flex: 0 0 auto;
+      margin-left: 16px;
+      color: #999;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .闫启智_news-red .闫启智_news-link {
+      color: #cc0000;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .闫启智_phone-box {
+        width: 100%;
+      }
+
+      .闫启智_tab-head {
+        flex-wrap: wrap;
+        gap: 6px 0;
+      }
+
+      .闫启智_channel {
+        flex: 1 0 100%;
+        margin-right: 0;
+      }
+
+      .闫启智_news-list li {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="闫启智_back" href="index.html">← 返回首页</a>
+
+  <div class="闫启智_tab-group 闫启智_phone-box">
+    <div class="闫启智_tab-head" role="tablist" aria-label="音乐手机栏目">
+      <span class="闫启智_channel">音乐手机</span>
+      <button class="闫启智_tab-btn 闫启智_active" type="button" role="tab" aria-selected="true" data-闫启智-tab-control="闫启智_panel_quote">行情</button>
+      <button class="闫启智_tab-btn" type="button" role="tab" aria-selected="false" tabindex="-1" data-闫启智-tab-control="闫启智_panel_guide">导购</button>
+      <button class="闫启智_tab-btn" type="button" role="tab" aria-selected="false" tabindex="-1" data-闫启智-tab-control="闫启智_panel_new">新品</button>
+      <button class="闫启智_tab-btn" type="button" role="tab" aria-selected="false" tabindex="-1" data-闫启智-tab-control="闫启智_panel_review">评测</button>
+    </div>
+
+    <section class="闫启智_tab-panel 闫启智_active" id="闫启智_panel_quote" role="tabpanel">
+      <ul class="闫启智_news-list">
+        <li><a class="闫启智_news-link" href="#">音乐强机苹果iPhone 5s价格稳定</a><span class="闫启智_news-date">(12/19)</span></li>
+        <li><a class="闫启智_news-link" href="#">高性能双四核音乐机 魅族MX3低价热卖</a><span class="闫启智_news-date">(12/19)</span></li>
+        <li><a class="闫启智_news-link" href="#">音乐品质最出色 vivo X3促销2199</a><span class="闫启智_news-date">(12/12)</span></li>
+        <li><a class="闫启智_news-link" href="#">时尚音乐手机 vivo Xplay济南2798元</a><span class="闫启智_news-date">(11/27)</span></li>
+        <li><a class="闫启智_news-link" href="#">好音乐好拍照 OPPO Find5今报价2580元</a><span class="闫启智_news-date">(08/27)</span></li>
+        <li><a class="闫启智_news-link" href="#">1.5GHz四核1080p OPPO Find 5降价热卖</a><span class="闫启智_news-date">(07/30)</span></li>
+        <li><a class="闫启智_news-link" href="#">彩色呼吸带双核机 索尼M35h促销2299</a><span class="闫启智_news-date">(06/08)</span></li>
+        <li><a class="闫启智_news-link" href="#">1.7GHz四核1080p屏 vivo Xplay热卖中</a><span class="闫启智_news-date">(06/07)</span></li>
+      </ul>
+    </section>
+
+    <section class="闫启智_tab-panel" id="闫启智_panel_guide" role="tabpanel" hidden>
+      <ul class="闫启智_news-list">
+        <li><a class="闫启智_news-link" href="#">优秀音效漂亮外观 市售音乐手机盘点</a><span class="闫启智_news-date">(09/13)</span></li>
+        <li><a class="闫启智_news-link" href="#">不要虐待耳朵 8款独特音效的音乐手机荐</a><span class="闫启智_news-date">(09/06)</span></li>
+        <li><a class="闫启智_news-link" href="#">最低只要799 9款高性能音乐手机推荐</a><span class="闫启智_news-date">(07/22)</span></li>
+        <li><a class="闫启智_news-link" href="#">长假主导后高考时代 奖励孩子的智能手机全攻略</a><span class="闫启智_news-date">(06/13)</span></li>
+        <li><a class="闫启智_news-link" href="#">降价不限时 端午后值得关注降价四核机推荐</a><span class="闫启智_news-date">(06/13)</span></li>
+        <li><a class="闫启智_news-link" href="#">高考之后尽情狂欢！学生超强手机推荐</a><span class="闫启智_news-date">(06/13)</span></li>
+        <li><a class="闫启智_news-link" href="#">上半年看这里 最热1080P四核旗舰手机</a><span class="闫启智_news-date">(06/13)</span></li>
+        <li><a class="闫启智_news-link" href="#">最厚不过7.99毫米 热门超薄强机大搜罗</a><span class="闫启智_news-date">(06/08)</span></li>
+      </ul>
+    </section>
+
+    <section class="闫启智_tab-panel" id="闫启智_panel_new" role="tabpanel" hidden>
+      <ul class="闫启智_news-list">
+        <li><a class="闫启智_news-link" href="#">无限接近完美！vivo Xplay3S现场体验</a><span class="闫启智_news-date">(12/19)</span></li>
+        <li><a class="闫启智_news-link" href="#">入门音乐机 诺基亚Lumia 525现身工信部</a><span class="闫启智_news-date">(11/05)</span></li>
+        <li><a class="闫启智_news-link" href="#">传诺基亚下月将推首款WP音乐手机Glee</a><span class="闫启智_news-date">(09/29)</span></li>
+        <li><a class="闫启智_news-link" href="#">软硬兼施 vivo Xstudio Hi-Fi音乐圈讲解</a><span class="闫启智_news-date">(08/23)</span></li>
+        <li><a class="闫启智_news-link" href="#">没有中国 谷歌All Access音乐服务登欧洲</a><span class="闫启智_news-date">(08/09)</span></li>
+        <li><a class="闫启智_news-link" href="#">Hi-Fi录音棚 vivo X3创Xstudio音乐系统</a><span class="闫启智_news-date">(08/07)</span></li>
+        <li class="闫启智_news-red"><a class="闫启智_news-link" href="#">Hi-Fi不够vivo又玩录音棚 X3音乐处理方案曝光</a><span class="闫启智_news-date">(08/06)</span></li>
+        <li><a class="闫启智_news-link" href="#">小伙伴都惊呆了 薄至6mm以下vivo X3终露面</a><span class="闫启智_news-date">(07/31)</span></li>
+      </ul>
+    </section>
+
+    <section class="闫启智_tab-panel" id="闫启智_panel_review" role="tabpanel" hidden>
+      <ul class="闫启智_news-list">
+        <li><a class="闫启智_news-link" href="#">音乐历久弥新 TD版魅族MX3评测</a><span class="闫启智_news-date">(12/19)</span></li>
+        <li><a class="闫启智_news-link" href="#">极致影音完美音质 步步高vivo Xplay移动版图赏</a><span class="闫启智_news-date">(07/24)</span></li>
+        <li><a class="闫启智_news-link" href="#">都是大屏何不同？三星S4/Mega静态评测</a><span class="闫启智_news-date">(06/20)</span></li>
+        <li><a class="闫启智_news-link" href="#">超值四核智能机 HTC Desire 608t评测</a><span class="闫启智_news-date">(06/20)</span></li>
+        <li><a class="闫启智_news-link" href="#">完美融合微博 魅族MX2 Flyme 2.2.5体验</a><span class="闫启智_news-date">(06/18)</span></li>
+        <li><a class="闫启智_news-link" href="#">1080p屏Hi-Fi旗舰 vivo Xplay娱乐体验</a><span class="闫启智_news-date">(06/13)</span></li>
+        <li><a class="闫启智_news-link" href="#">5.7英寸高清巨屏 酷派9070+XO影音体验</a><span class="闫启智_news-date">(06/06)</span></li>
+        <li><a class="闫启智_news-link" href="#">悬浮窗口播放 vivo Xplay视频功能初体验</a><span class="闫启智_news-date">(06/06)</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="js/闫启智_tab.js"></script>
+</body>
+</html>

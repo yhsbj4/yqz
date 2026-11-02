@@ -123,4 +123,22 @@ AGENTS.md 所有说明、检查条目统一简体中文；文件路径、HTML、
 创建技能skill：提交到github，将本项目提交commit并push到`https://github.com/yhsbj4/yqz.git`，使用已设置公钥。
 ```
 
+---
+
+### 2026-11-02 续
+- **模型**：DeepSeek-V4.1-Flash
+- **提示词**：
+```
+帮我还原文件夹8中的图片，把他做成一个网页
+```
+
+---
+
+### 2026-11-02 续
+- **模型**：DeepSeek-V4.1-Flash
+- **提示词**：
+```
+帮我把刚刚生成的也推送到`https://github.com/yhsbj4/yqz.git` ，使用已设置公钥。
+```
+
 
