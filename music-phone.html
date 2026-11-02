@@ -221,6 +221,99 @@
     </section>
   </div>
 
-  <script src="js/闫启智_tab.js"></script>
+  <script>
+    /**
+     * 选项卡逻辑（内联版，页面可单文件独立运行）
+     */
+    (function () {
+      'use strict';
+
+      var 闫启智_GROUP_SELECTOR = '.闫启智_tab-group';
+      var 闫启智_BUTTON_SELECTOR = '.闫启智_tab-btn';
+      var 闫启智_PANEL_SELECTOR = '.闫启智_tab-panel';
+      var 闫启智_ACTIVE_CLASS = '闫启智_active';
+
+      function 闫启智_clearTabState(闫启智_group) {
+        var 闫启智_buttons = 闫启智_group.querySelectorAll(闫启智_BUTTON_SELECTOR);
+        var 闫启智_panels = 闫启智_group.querySelectorAll(闫启智_PANEL_SELECTOR);
+
+        Array.prototype.forEach.call(闫启智_buttons, function (闫启智_button) {
+          闫启智_button.classList.remove(闫启智_ACTIVE_CLASS);
+          闫启智_button.setAttribute('aria-selected', 'false');
+          闫启智_button.setAttribute('tabindex', '-1');
+        });
+
+        Array.prototype.forEach.call(闫启智_panels, function (闫启智_panel) {
+          闫启智_panel.classList.remove(闫启智_ACTIVE_CLASS);
+          闫启智_panel.setAttribute('hidden', 'hidden');
+        });
+      }
+
+      function 闫启智_activateTab(闫启智_group, 闫启智_button) {
+        闫启智_clearTabState(闫启智_group);
+
+        var 闫启智_panelId = 闫启智_button.getAttribute('data-闫启智-tab-control');
+        var 闫启智_panel = 闫启智_group.querySelector('#' + 闫启智_panelId) || document.getElementById(闫启智_panelId);
+
+        闫启智_button.classList.add(闫启智_ACTIVE_CLASS);
+        闫启智_button.setAttribute('aria-selected', 'true');
+        闫启智_button.setAttribute('tabindex', '0');
+
+        if (闫启智_panel) {
+          闫启智_panel.classList.add(闫启智_ACTIVE_CLASS);
+          闫启智_panel.removeAttribute('hidden');
+        }
+      }
+
+      function 闫启智_handleKeydown(闫启智_group, 闫启智_event) {
+        if (闫启智_event.key !== 'ArrowLeft' && 闫启智_event.key !== 'ArrowRight') {
+          return;
+        }
+
+        var 闫启智_button = 闫启智_event.target.closest(闫启智_BUTTON_SELECTOR);
+        if (!闫启智_button) {
+          return;
+        }
+
+        var 闫启智_buttons = Array.prototype.slice.call(闫启智_group.querySelectorAll(闫启智_BUTTON_SELECTOR));
+        var 闫启智_index = 闫启智_buttons.indexOf(闫启智_button);
+        if (闫启智_index === -1) {
+          return;
+        }
+
+        var 闫启智_nextIndex = 闫启智_event.key === 'ArrowRight'
+          ? (闫启智_index + 1) % 闫启智_buttons.length
+          : (闫启智_index - 1 + 闫启智_buttons.length) % 闫启智_buttons.length;
+
+        闫启智_event.preventDefault();
+        闫启智_activateTab(闫启智_group, 闫启智_buttons[闫启智_nextIndex]);
+        闫启智_buttons[闫启智_nextIndex].focus();
+      }
+
+      function 闫启智_initTabs() {
+        var 闫启智_groups = document.querySelectorAll(闫启智_GROUP_SELECTOR);
+
+        Array.prototype.forEach.call(闫启智_groups, function (闫启智_group) {
+          闫启智_group.addEventListener('click', function (闫启智_event) {
+            var 闫启智_button = 闫启智_event.target.closest(闫启智_BUTTON_SELECTOR);
+            if (!闫启智_button || !闫启智_group.contains(闫启智_button)) {
+              return;
+            }
+            闫启智_activateTab(闫启智_group, 闫启智_button);
+          });
+
+          闫启智_group.addEventListener('keydown', function (闫启智_event) {
+            闫启智_handleKeydown(闫启智_group, 闫启智_event);
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', 闫启智_initTabs);
+      } else {
+        闫启智_initTabs();
+      }
+    })();
+  </script>
 </body>
 </html>
