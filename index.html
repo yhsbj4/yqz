@@ -3,322 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>抓小球小游戏</title>
+<title>闫启智 · Swiper 课堂任务提交入口</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: "Microsoft YaHei", Arial, sans-serif;
-    background-color: #fdf5c8; /* 浅黄色背景 */
-    min-height: 100vh;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* ====== 顶部工具栏 ====== */
-  .score-bar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 60px;
-    background: #fff9e6;
-    border-bottom: 2px solid #e6d58a;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    z-index: 10;
-  }
-  .timer { font-size: 22px; font-weight: bold; color: #333; }
-  .score { font-size: 22px; font-weight: bold; color: #333; }
-  .btn {
-    padding: 10px 28px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background: #e67e22;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .btn:hover { background: #d35400; }
-  .btn:disabled { background: #aaa; cursor: not-allowed; }
-
-  /* ====== 小球 ====== */
-  .ball {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: #4a90e2;       /* 纯蓝色实心 */
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 5;
-    /* 中心点定位：JS 会设置 left/top 为 (x - 20)px / (y - 20)px */
-  }
-
-  /* ====== 结束遮罩 ====== */
-  .overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
-  }
-  .overlay.show { display: flex; }
-  .overlay-content {
-    background: #fff;
-    padding: 40px 60px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  }
-  .overlay-content h2 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 16px;
-  }
-  .overlay-content p {
-    font-size: 20px;
-    color: #e67e22;
-    margin-bottom: 24px;
-    font-weight: bold;
-  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#f6f8fc;color:#1f2937;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px 18px}
+  .闫启智_card{width:100%;max-width:640px;background:#fff;border:1px solid #e8ecf5;border-radius:20px;box-shadow:0 10px 30px rgba(15,43,91,.10);padding:36px 38px}
+  .闫启智_badge{display:inline-block;font-size:12.5px;letter-spacing:2px;color:#fff;background:linear-gradient(135deg,#0f2b5b,#1d5bbf);border-radius:999px;padding:5px 16px;margin-bottom:16px}
+  .闫启智_card h1{font-size:24px;color:#111827;line-height:1.5}
+  .闫启智_card h1 b{color:#1d5bbf}
+  .闫启智_card>p{margin-top:10px;font-size:14px;color:#6b7280;line-height:2}
+  .闫启智_links{margin-top:24px;display:flex;flex-direction:column;gap:12px}
+  .闫启智_links a{display:block;text-decoration:none;border:1.5px solid #dbe4ff;border-radius:14px;padding:14px 18px;color:#0f2b5b;transition:all .2s;background:#fbfcff}
+  .闫启智_links a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,43,91,.14);border-color:#1d5bbf}
+  .闫启智_links a b{display:block;font-size:15.5px}
+  .闫启智_links a span{display:block;font-size:12.5px;color:#9ca3af;margin-top:4px}
+  .闫启智_primary{background:linear-gradient(135deg,#0f2b5b,#1d5bbf)!important;color:#fff!important;border-color:transparent!important}
+  .闫启智_primary span{color:#c7d8f8!important}
+  footer{margin-top:26px;text-align:center;font-size:12.5px;color:#9ca3af}
 </style>
 </head>
 <body>
-
-<!-- 顶部工具栏 -->
-<div class="score-bar">
-  <div class="timer" id="timer">⏱ 02:00</div>
-  <button class="btn" id="startBtn">开始游戏</button>
-  <div class="score" id="score">分数：0</div>
-</div>
-
-<!-- 结束遮罩 -->
-<div class="overlay" id="overlay">
-  <div class="overlay-content">
-    <h2>🎉 时间到！</h2>
-    <p id="finalScore">最终得分：0</p>
-    <button class="btn" id="restartBtn">再来一局</button>
+  <div class="闫启智_card">
+    <span class="闫启智_badge">高 级 网 页 设 计 · 课 堂 任 务 提 交</span>
+    <h1>Swiper 轮播组件 · <b>三项任务提交入口</b></h1>
+    <p>任务一 · 提示词工程师 ｜ 任务二 · creative 仿写 ｜ 任务三 · 综合创作（爱达·魔都号 + keyboard）</p>
+    <div class="闫启智_links">
+      <a class="闫启智_primary" href="swiper-task.html">
+        <b>🎛️ 任务页面 · 大国重器光影展</b>
+        <span>四个轮播演示 · 第七种 creative 效果 · 第六件展品 · keyboard 键盘控制</span>
+      </a>
+      <a href="yqz_swiper-prompts.html">
+        <b>📝 提示词与答辩记录（访问入口）</b>
+        <span>任务一两轮提示词迭代 · 任务二 creative 自学记录 · 任务三关键对话</span>
+      </a>
+      <a href="evidence/sw4-cube-verify.html">
+        <b>✅ 任务一验证页（第二轮配置实测）</b>
+        <span>loop / autoplay / pagination / cube 四项自动检测</span>
+      </a>
+      <a href="高网/index.html">
+        <b>🏫 课堂实践中心（其他课程作品）</b>
+        <span>CSS / JS 练习 · 校园门户 · 番茄小说 · iconfont</span>
+      </a>
+    </div>
+    <footer>闫启智 · 高级网页设计 · 2026-2027-1</footer>
   </div>
-</div>
-
-<script>
-/* ====================================================
-   抓小球小游戏 — 原生 JS 实现
-   核心约束：
-     1. 全程 3 个小球，不允许位置重叠（圆心距 ≥ 40px）
-     2. 禁止 innerHTML='' 清空容器（用 removeChild 只删球）
-     3. 事件分层：小球 stopPropagation + body 处理未命中
-     4. 数量不变量：任意时刻 active.length === 3
-==================================================== */
-
-const BALL_RADIUS = 20;          // 半径 20px（直径 40px）
-const BALL_DIAMETER = 40;
-const TOTAL_BALLS = 3;
-const GAME_SECONDS = 120;        // 2 分钟
-const BOUND_PADDING = BALL_RADIUS; // 边界预留 20px
-const TOP_BAR_HEIGHT = 60;       // 顶部工具栏高度（需与 CSS .score-bar height 保持一致）
-
-/* ----- 游戏状态 ----- */
-let state = {
-  running: false,
-  score: 0,
-  timeLeft: GAME_SECONDS,
-  balls: [],          // 活动小球列表：[{ id, x, y, node }]
-  timerId: null,
-  ballIdCounter: 0
-};
-
-/* ----- DOM 引用 ----- */
-const $startBtn  = document.getElementById('startBtn');
-const $restartBtn= document.getElementById('restartBtn');
-const $timer     = document.getElementById('timer');
-const $score     = document.getElementById('score');
-const $overlay   = document.getElementById('overlay');
-const $finalScore= document.getElementById('finalScore');
-
-/* ====================================================
-   工具函数
-   ==================================================== */
-
-function formatTime(sec) {
-  const m = Math.floor(sec / 60).toString().padStart(2, '0');
-  const s = (sec % 60).toString().padStart(2, '0');
-  return `${m}:${s}`;
-}
-
-function updateUI() {
-  $timer.textContent = '⏱ ' + formatTime(state.timeLeft);
-  $score.textContent = '分数：' + state.score;
-}
-
-/* 计算 body 可生成小球的有效范围（减去顶部工具栏 + 边界预留） */
-function getPlayArea() {
-  const w = document.body.clientWidth;
-  const h = document.body.clientHeight;
-  return {
-    minX: BOUND_PADDING,
-    maxX: w - BOUND_PADDING,
-    minY: TOP_BAR_HEIGHT + BOUND_PADDING,
-    maxY: h - BOUND_PADDING
-  };
-}
-
-/* 检查新坐标是否与现有小球重叠（圆心距 ≥ 直径） */
-function isPositionValid(x, y, excludeId = null) {
-  for (const b of state.balls) {
-    if (b.id === excludeId) continue;
-    const dx = b.x - x;
-    const dy = b.y - y;
-    if (Math.sqrt(dx*dx + dy*dy) < BALL_DIAMETER) return false;
-  }
-  return true;
-}
-
-/* 在 playArea 内生成一个不重叠的随机位置，最多尝试 200 次 */
-function randomSafePosition(excludeId = null) {
-  const area = getPlayArea();
-  let attempts = 0;
-  while (attempts < 200) {
-    const x = Math.random() * (area.maxX - area.minX) + area.minX;
-    const y = Math.random() * (area.maxY - area.minY) + area.minY;
-    if (isPositionValid(x, y, excludeId)) return { x, y };
-    attempts++;
-  }
-  // 实在挤不下（极小概率），强制返回一个合法坐标
-  return { x: area.minX, y: area.minY };
-}
-
-/* ====================================================
-   小球管理
-   ==================================================== */
-
-/* 创建一个小球 DOM 节点并挂载事件 */
-function createBallNode(x, y) {
-  const ball = document.createElement('div');
-  ball.className = 'ball';
-  ball.style.left = (x - BALL_RADIUS) + 'px';
-  ball.style.top  = (y - BALL_RADIUS) + 'px';
-
-  ball.addEventListener('click', onBallClick);
-  return ball;
-}
-
-/* 初始生成 3 个不重叠小球 */
-function spawnInitialBalls() {
-  state.balls = [];
-  for (let i = 0; i < TOTAL_BALLS; i++) {
-    const { x, y } = randomSafePosition();
-    const node = createBallNode(x, y);
-    document.body.appendChild(node);
-    state.balls.push({ id: ++state.ballIdCounter, x, y, node });
-  }
-}
-
-/* 命中后：移除旧球，立刻补一个新球（原子操作，始终 3 个） */
-function replaceBall(hitId) {
-  // 从状态数组中移除旧球
-  const idx = state.balls.findIndex(b => b.id === hitId);
-  if (idx === -1) return;
-  const old = state.balls[idx];
-  state.balls.splice(idx, 1);
-
-  // 先算新位置（基于剩余球做碰撞检测）
-  const { x, y } = randomSafePosition();
-  const newNode = createBallNode(x, y);
-  document.body.appendChild(newNode);
-  state.balls.push({ id: ++state.ballIdCounter, x, y, node: newNode });
-
-  // 最后才从 DOM 删除旧节点（避免 innerHTML=''/清空容器 的坑）
-  if (old.node.parentNode) old.node.parentNode.removeChild(old.node);
-}
-
-/* 清理所有小球 */
-function clearAllBalls() {
-  for (const b of state.balls) {
-    if (b.node.parentNode) b.node.parentNode.removeChild(b.node);
-  }
-  state.balls = [];
-}
-
-/* ====================================================
-   事件处理
-   ==================================================== */
-
-/* 命中小球：+2 分，替换球（stopPropagation 阻止冒泡到 body） */
-function onBallClick(event) {
-  event.stopPropagation();
-  if (!state.running) return;
-
-  const hitNode = event.currentTarget;
-  const hitBall = state.balls.find(b => b.node === hitNode);
-  if (!hitBall) return;
-
-  state.score += 2;
-  updateUI();
-
-  // 原子替换：先找位置 → 新球入列 → 旧球移除 → DOM 删除
-  replaceBall(hitBall.id);
-}
-
-/* 点击 body 空白：-1 分（下限 0） */
-function onBodyClick(event) {
-  if (!state.running) return;
-  // body 点击只有 stopPropagation 后才会到达这里，所以安全
-  state.score = Math.max(0, state.score - 1);
-  updateUI();
-}
-
-/* ====================================================
-   游戏生命周期
-   ==================================================== */
-
-function startGame() {
-  state.running = true;
-  state.score = 0;
-  state.timeLeft = GAME_SECONDS;
-  $startBtn.disabled = true;
-  $overlay.classList.remove('show');
-  clearAllBalls();
-  spawnInitialBalls();
-  updateUI();
-
-  state.timerId = setInterval(() => {
-    state.timeLeft--;
-    updateUI();
-    if (state.timeLeft <= 0) endGame();
-  }, 1000);
-}
-
-function endGame() {
-  state.running = false;
-  clearInterval(state.timerId);
-  state.timerId = null;
-  $startBtn.disabled = false;
-
-  // 显示结束遮罩 + 最终分；小球继续留在页面上（视觉定格）
-  // 小球交互已由 onBallClick 开头的 `if (!state.running) return;` 守卫自然屏蔽，无需手动移除监听
-  $finalScore.textContent = '最终得分：' + state.score;
-  $overlay.classList.add('show');
-}
-
-function restartGame() {
-  $overlay.classList.remove('show');
-  startGame();
-}
-
-/* ====================================================
-   启动绑定
-   ==================================================== */
-
-$startBtn.addEventListener('click', startGame);
-$restartBtn.addEventListener('click', restartGame);
-document.body.addEventListener('click', onBodyClick);
-
-// 初次渲染 UI（显示 02:00 / 分数 0）
-updateUI();
-</script>
 </body>
 </html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提示词与答辩记录 · 闫启智 · Swiper 三项任务</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#f6f8fc;color:#1f2937;line-height:1.9}
+  .闫启智_wrap{max-width:860px;margin:0 auto;padding:34px 20px 60px}
+  .闫启智_wrap>h1{font-size:24px;color:#0f2b5b}
+  .闫启智_wrap>.闫启智_sub{color:#6b7280;font-size:13.5px;margin:8px 0 26px}
+  .闫启智_nav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 28px}
+  .闫启智_nav a{font-size:13px;color:#1d5bbf;text-decoration:none;border:1px solid #dbe4ff;background:#fff;border-radius:999px;padding:5px 14px}
+  .闫启智_nav a:hover{background:#eef3ff}
+  section{background:#fff;border:1px solid #e8ecf5;border-radius:18px;padding:26px 28px;margin-bottom:26px;box-shadow:0 8px 22px rgba(15,43,91,.06)}
+  section h2{font-size:19px;color:#0f2b5b;border-left:5px solid #1d5bbf;padding-left:12px;margin-bottom:6px}
+  section h3{font-size:15px;color:#b45309;margin:20px 0 6px}
+  .闫启智_tag{display:inline-block;font-size:12px;color:#fff;border-radius:999px;padding:2px 12px;margin-left:8px;vertical-align:middle}
+  .闫启智_tag.闫启智_bad{background:#b91c1c}.闫启智_tag.闫启智_ok{background:#15803d}
+  .闫启智_prompt{background:#0f2b5b;color:#dbe6f8;border-radius:12px;padding:16px 18px;font-size:13.5px;margin:8px 0;white-space:pre-wrap;word-break:break-all}
+  .闫启智_prompt b{color:#fbbf24}
+  .闫启智_answer{background:#f1f5f9;border-left:4px solid #1d5bbf;border-radius:0 12px 12px 0;padding:14px 18px;font-size:13.5px;margin:8px 0}
+  .闫启智_answer code,.闫启智_plain code{background:#e8ecf5;border-radius:5px;padding:1px 6px;font-size:12.5px;color:#0f2b5b}
+  pre{background:#101827;color:#dbe6f8;border-radius:12px;padding:16px 18px;font-size:12.5px;overflow-x:auto;margin:8px 0;line-height:1.75}
+  pre .闫启智_c{color:#7d8aa5}
+  .闫启智_find{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 16px;font-size:13.5px;color:#9a3412;margin:8px 0}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{border:1px solid #e8ecf5;padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f1f5f9;color:#0f2b5b}
+  .闫启智_pass{color:#15803d;font-weight:700}
+  .闫启智_shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+  .闫启智_shots figure{border:1px solid #e8ecf5;border-radius:12px;overflow:hidden;background:#fff}
+  .闫启智_shots img{width:100%;display:block}
+  .闫启智_shots figcaption{font-size:12.5px;color:#4b5563;padding:8px 12px;background:#f8fafc}
+  .闫启智_plain{font-size:13.5px}
+  .闫启智_plain p{margin:6px 0}
+  .闫启智_plain ul{margin:6px 0 6px 22px}
+  .闫启智_back{text-align:center;margin-top:10px;font-size:13.5px}
+  .闫启智_back a{color:#1d5bbf}
+  @media(max-width:640px){.闫启智_shots{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="闫启智_wrap">
+  <h1>Swiper 三项任务 · 提示词与答辩记录</h1>
+  <p class="闫启智_sub">闫启智 · 高级网页设计 · 2026-2027-1 ｜ 任务一提示词工程师 · 任务二 creative 仿写 · 任务三综合创作</p>
+  <nav class="闫启智_nav">
+    <a href="index.html">← 返回首页</a>
+    <a href="swiper-task.html">任务页面</a>
+    <a href="evidence/sw4-cube-verify.html">任务一验证页</a>
+    <a href="#闫启智_t1">任务一</a><a href="#闫启智_t2">任务二</a><a href="#闫启智_t3">任务三</a>
+  </nav>
+
+  <!-- ================= 任务一 ================= -->
+  <section id="闫启智_t1">
+    <h2>任务一 · 提示词工程师：让 AI 听懂需求</h2>
+    <p class="闫启智_plain">目标：让 AI 生成 <code>new Swiper('#wySw4', {...})</code> 配置，满足 ① 无缝循环 ② 3.2 秒自动翻页且手动操作后不停止 ③ 圆点分页器可点击 ④ 初始效果为 cube。硬性要求：至少迭代 2 轮，保留每轮提示词与回答，并粘进页面验证。</p>
+
+    <h3>第 1 轮提示词<span class="闫启智_tag 闫启智_bad">有遗漏</span></h3>
+    <div class="闫启智_prompt">帮我写一个 Swiper 配置代码 new Swiper('#wySw4', {...})，要求：
+1. 无缝循环
+2. 3.2 秒自动翻页
+3. 圆点分页器可以点击
+4. 切换效果用 cube
+请直接给我可以粘贴运行的代码。</div>
+    <h3>AI 第 1 轮回答（节选）</h3>
+    <pre>new Swiper('#wySw4', {
+  loop: true,
+  effect: 'cube',
+  autoplay: { delay: 3200 },
+  pagination: { el: '#wyPag4', clickable: true }
+});</pre>
+    <div class="闫启智_find">✘ 验证发现的问题：粘进页面后，前三项看着都对，但我用鼠标拖动了一次图片之后，<b>自动翻页停了，再也不动</b>。查 Swiper 文档才知道：autoplay 有个参数 <code>disableOnInteraction</code>，默认值是 true（用户一交互就停止自动播放）。我的提示词只说了"自动翻页"，没说"手动操作之后也不能停"，AI 就按默认值给了。</div>
+
+    <h3>第 2 轮提示词<span class="闫启智_tag 闫启智_ok">补全</span></h3>
+    <div class="闫启智_prompt">上一次给的配置有个问题：我用手拖动图片后，自动翻页就停了。请修改 new Swiper('#wySw4', {...}) 配置，要求：
+1. 无缝循环
+2. 3.2 秒自动翻页，<b>并且手动拖动、点击之后自动翻页不能停</b>——Swiper 里控制这个行为的参数是哪个？请写清楚
+3. 圆点分页器可点击
+4. 初始切换效果为 cube</div>
+    <h3>AI 第 2 轮回答（最终采用）</h3>
+    <pre>new Swiper('#wySw4', {
+  loop: true,                      <span class="闫启智_c">// ① 无缝循环</span>
+  speed: 800,
+  effect: 'cube',                  <span class="闫启智_c">// ④ 初始效果为 cube</span>
+  autoplay: {
+    delay: 3200,                   <span class="闫启智_c">// ② 3.2 秒自动翻页</span>
+    disableOnInteraction: false    <span class="闫启智_c">// ② 手动操作后不停止（关键参数）</span>
+  },
+  pagination: {
+    el: '#wyPag4',
+    clickable: true                <span class="闫启智_c">// ③ 圆点分页器可点击</span>
+  }
+});</pre>
+
+    <h3>逐项验证（截图 + 一句话结论）</h3>
+    <table>
+      <tr><th>需求</th><th>验证方法</th><th>结论</th></tr>
+      <tr><td>① 无缝循环</td><td>自动断言：在第 1 张执行 slidePrev(0)，realIndex 回绕为 5（第 6 张）</td><td class="闫启智_pass">✔ 通过：末张之后能回到第 1 张，首尾相接</td></tr>
+      <tr><td>② 3.2 秒自动翻页且手动后不停止</td><td>断言 delay=3200、disableOnInteraction=false 且 autoplay.running=true；截图 e1→e2 对比</td><td class="闫启智_pass">✔ 通过：3.2 秒翻页，点击圆点后自动翻页仍在继续</td></tr>
+      <tr><td>③ 圆点分页器可点击</td><td>断言 clickable=true、圆点带 role=button / tabindex=0（点击已绑定）；截图 e3</td><td class="闫启智_pass">✔ 通过：点击圆点立即跳切，带 cube 旋转过渡</td></tr>
+      <tr><td>④ 初始效果为 cube</td><td>断言 params.effect=cube、容器含 swiper-cube 类；截图 e1</td><td class="闫启智_pass">✔ 通过：初始即为立方体 3D 翻转</td></tr>
+    </table>
+    <div class="闫启智_shots">
+      <figure><img src="evidence/e1-cube-initial.png" alt="初始 cube"><figcaption>图 e1（1.2s）：初始第 1 张，cube 效果就绪 —— 需求④</figcaption></figure>
+      <figure><img src="evidence/e2-autoplay-advanced.png" alt="自动翻页"><figcaption>图 e2（4.6s）：已自动翻到第 5 张，右侧可见 cube 3D 棱边 —— 需求②④</figcaption></figure>
+      <figure><img src="evidence/e3-pagination-click.png" alt="圆点点击"><figcaption>图 e3：点击第 4 个圆点发生跳切后自动翻页仍继续前进 —— 需求②③ 同时证明</figcaption></figure>
+      <figure><img src="evidence/e4-verify-results.png" alt="断言结果"><figcaption>图 e4：验证页 5 项自动断言全部 ✔ 通过（<a href="evidence/sw4-cube-verify.html">打开验证页</a>）</figcaption></figure>
+    </div>
+
+    <h3>答辩抽问准备</h3>
+    <div class="闫启智_plain">
+      <ul>
+        <li><b>第一版漏了哪个需求？</b>漏了"手动操作后不停止"——我只写了"3.2 秒自动翻页"，没有描述用户交互之后的行为。</li>
+        <li><b>第二轮怎么说清楚的？</b>把现象（拖一下就不动了）告诉 AI，并把需求翻译成明确的行为描述"手动拖动、点击之后自动翻页不能停"，还直接追问"控制这个行为的参数是哪个"，AI 就定位到了 <code>autoplay.disableOnInteraction: false</code>。</li>
+        <li><b>AI 第一次的代码错在哪？</b>少了 <code>disableOnInteraction: false</code>。Swiper 默认该值为 true，用户一交互 autoplay 就永久停止，导致需求②只满足一半。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 任务二 ================= -->
+  <section id="闫启智_t2">
+    <h2>任务二 · creative 仿写：课堂没讲，AI 教我</h2>
+    <p class="闫启智_plain">课堂只讲了 6 种 effect，第 7 种 <code>creative</code>（自定义变换）未讲。我打开官方示例 <code>swiper/demo/257-effect-creative.html</code>，配合 AI 读懂 <code>creativeEffect</code> 的写法，为演示四新增了第 7 个按钮「creative 电影墙」。</p>
+
+    <h3>最终参数（已粘进 swiper-task.html 并实测生效）</h3>
+    <pre>creativeEffect: {
+  prev: {                              <span class="闫启智_c">// 上一张：缩小左移带角度</span>
+    shadow: true,
+    translate: ['-105%', 0, -450],
+    rotate: [0, 0, -14],
+    scale: 0.82
+  },
+  next: {                              <span class="闫启智_c">// 下一张：放大右移进场</span>
+    shadow: true,
+    translate: ['112%', 0, 0],
+    rotate: [0, 0, 8],
+    scale: 1.08
+  }
+}</pre>
+
+    <h3>prev / next 的 transform 各控制什么？（自己的话）</h3>
+    <div class="闫启智_plain">
+      <ul>
+        <li><b>prev</b>：控制"已经翻过去的那一张"在滑走方向上的姿态。我这里让它向左移出自身宽度的 105%、沿 Z 轴往屏幕深处退 450px、逆时针倾 14°、缩小到 0.82——像一张被从电影选片墙上抽走的海报。</li>
+        <li><b>next</b>：控制"即将进场的那一张"在等待位置的姿态。它候在右侧 112% 处、略微放大到 1.08、带 8° 倾角；滑动过程中 Swiper 按进度把这些值插值回基准（位移 0、旋转 0、scale 1），就有"放大进场转正"的感觉。</li>
+        <li>当前激活的那张不写，默认就是基准姿态；prev/next 是两个端点，Swiper 负责中间过程。</li>
+      </ul>
+    </div>
+
+    <h3>答辩抽问准备</h3>
+    <div class="闫启智_plain">
+      <ul>
+        <li><b>transform 里的百分号是相对谁的？</b>x 方向的百分比（'-105%' / '112%'）相对于 <b>slide 自身的宽度</b>，所以 '-105%' 就是向左移出"一张幻灯片再多一点"的距离。</li>
+        <li><b>改一个数值让卡片转 20 度？</b>把 rotate 数组的第三个值（z 轴旋转，单位度）改成 20，如 <code>rotate: [0, 0, 20]</code>；前两个值分别是 x、y 轴旋转。</li>
+      </ul>
+    </div>
+    <div class="闫启智_find">✔ 实测记录：点击「creative 电影墙」后，<code>params.effect = 'creative'</code>，prev.translate = ["-105%",0,-450]、prev.scale = 0.82、next.translate = ["112%",0,0]、next.scale = 1.08，与目标一致（无头浏览器断言通过）。</div>
+  </section>
+
+  <!-- ================= 任务三 ================= -->
+  <section id="闫启智_t3">
+    <h2>任务三 · 综合创作 + 技术答辩</h2>
+
+    <h3>① 第六件展品：爱达·魔都号</h3>
+    <div class="闫启智_prompt">为光影展添加第六件展品<b>爱达·魔都号</b>（首艘国产大型邮轮，2024 年 1 月首航），图片用 AI 生成（横版 16:9 写实照片），slide 结构与现有五件保持一致（img + .wy-cap 标题与说明文字），四个轮播都要加。</div>
+    <p class="闫启智_plain">AI 生成图片 <code>swiper-imgs/adora_1.jpg</code>（2560×1440，16:9），并在 wySw1–wySw4 四个轮播末尾各补一张结构完整的 slide。验证：四组轮播的非复制 slide 均为 <b>6 张</b>。</p>
+
+    <h3>② 超纲能力：keyboard 键盘控制</h3>
+    <div class="闫启智_prompt">课堂上讲过 keyboard / mousewheel / zoom / parallax 之外的常规配置，请挑一个没讲过的 Swiper 能力加到演示四，并解释每个参数的作用。</div>
+    <div class="闫启智_answer">选了 <code>keyboard</code>。配置 <code>keyboard: { enabled: true, onlyInViewport: true }</code>：<b>enabled</b> 开启键盘 ← → 键切换幻灯片；<b>onlyInViewport</b> 表示轮播进入视口才响应按键，滚动到别处时不会误触。AI 第一次只写了 enabled:true，我追问"页面很长，会不会滚到下面还乱切"之后补上了 onlyInViewport。</div>
+
+    <h3>答辩四连问准备</h3>
+    <div class="闫启智_plain">
+      <ul>
+        <li><b>这段代码什么意思？</b><code>keyboard: { enabled: true, onlyInViewport: true }</code>：开启键盘左右方向键切换，并且只在轮播出现在浏览器视口内时才响应。</li>
+        <li><b>AI 第一次给的哪里不对、改了什么？</b>第一次只给 <code>enabled: true</code>，页面较长时在任何位置按方向键都会触发切换；我补了 <code>onlyInViewport: true</code> 限制作用范围。任务一里第一轮则漏了 <code>disableOnInteraction: false</code>。</li>
+        <li><b>新参数的作用？</b><code>disableOnInteraction: false</code> 让手动操作后自动翻页不停止；<code>clickable: true</code> 让分页圆点可点击；<code>onlyInViewport</code> 限制键盘响应范围；<code>creativeEffect.prev/next</code> 定义 creative 效果两端姿态。</li>
+        <li><b>现场把 delay 改成指定值？</b>delay 是两次自动翻页之间的间隔（毫秒）。改成 1500 就是 1.5 秒翻一页、节奏明显变快；它只改等待时间，不影响 speed:800 的过渡动画时长。</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="闫启智_back"><a href="index.html">← 返回首页</a>　·　<a href="swiper-task.html">任务页面</a>　·　<a href="evidence/sw4-cube-verify.html">任务一验证页</a></p>
+</div>
+</body>
+</html>

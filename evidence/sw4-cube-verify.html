@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>任务一验证 · #wySw4 第二轮配置实测</title>
+<link rel="stylesheet" href="../cdn/swiper/swiper-bundle.min.css">
+<script src="../cdn/swiper/swiper-bundle.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#f6f8fc;color:#1f2937;padding:28px 20px 50px}
+  .闫启智_wrap{max-width:820px;margin:0 auto}
+  .闫启智_wrap>h1{font-size:20px;margin-bottom:6px;color:#0f2b5b}
+  .闫启智_wrap>p.闫启智_sub{font-size:13px;color:#6b7280;margin-bottom:18px;line-height:1.9}
+  .swiper{width:100%;max-width:760px;margin:0 auto;border-radius:16px;box-shadow:0 10px 26px rgba(15,43,91,.18)}
+  .swiper-slide{position:relative;height:290px}
+  .swiper-slide img{width:100%;height:100%;object-fit:cover;display:block}
+  .闫启智_cap{position:absolute;left:0;right:0;bottom:0;padding:30px 18px 12px;color:#fff;background:linear-gradient(transparent,rgba(5,15,35,.82))}
+  .闫启智_cap h3{font-size:17px}
+  .闫启智_cap p{font-size:12.5px;color:#dbe6f8;margin-top:3px}
+  .swiper-pagination-bullet{background:#0f2b5b;opacity:.35}
+  .swiper-pagination-bullet-active{background:#e8890c;opacity:1;width:22px;border-radius:6px}
+  #闫启智_results{margin:26px auto 0;max-width:760px;background:#fff;border:1px solid #e8ecf5;border-radius:14px;padding:16px 20px;font-size:13.5px;line-height:2.1}
+  #闫启智_results h2{font-size:15px;color:#0f2b5b;margin-bottom:6px}
+  #闫启智_results .闫启智_pass{color:#15803d}
+  #闫启智_results .闫启智_fail{color:#b91c1c}
+  #闫启智_results .闫启智_wait{color:#9ca3af}
+  .闫启智_back{margin-top:20px;text-align:center}
+  .闫启智_back a{color:#0f2b5b;font-size:13.5px}
+</style>
+</head>
+<body>
+<div class="闫启智_wrap">
+  <h1>任务一验证页 · 第二轮提示词生成的 #wySw4 配置</h1>
+  <p class="闫启智_sub">本页把第二轮 AI 生成的配置原样粘进页面，逐项验证四条需求：① 无缝循环 ② 3.2 秒自动翻页且手动操作后不停止 ③ 圆点分页器可点击 ④ 初始效果为 cube。</p>
+
+  <div class="swiper" id="wySw4">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="../swiper-imgs/tiangong_1.jpg" alt="天宫空间站"><div class="闫启智_cap"><h3>天宫空间站</h3><p>验证样片 1</p></div></div>
+      <div class="swiper-slide"><img src="../swiper-imgs/fuxing_1.jpg" alt="复兴号动车组"><div class="闫启智_cap"><h3>复兴号动车组</h3><p>验证样片 2</p></div></div>
+      <div class="swiper-slide"><img src="../swiper-imgs/c919_1.jpg" alt="C919大飞机"><div class="闫启智_cap"><h3>C919 大飞机</h3><p>验证样片 3</p></div></div>
+      <div class="swiper-slide"><img src="../swiper-imgs/fendouzhe_1.jpg" alt="奋斗者号"><div class="闫启智_cap"><h3>奋斗者号</h3><p>验证样片 4</p></div></div>
+      <div class="swiper-slide"><img src="../swiper-imgs/fast_1.jpg" alt="中国天眼"><div class="闫启智_cap"><h3>中国天眼 FAST</h3><p>验证样片 5</p></div></div>
+      <div class="swiper-slide"><img src="../swiper-imgs/adora_1.jpg" alt="爱达·魔都号"><div class="闫启智_cap"><h3>爱达·魔都号</h3><p>验证样片 6</p></div></div>
+    </div>
+    <div class="swiper-pagination" id="wyPag4"></div>
+  </div>
+
+  <div id="闫启智_results"><h2>自动验证结果</h2><div id="闫启智_logbox"></div></div>
+
+  <div class="闫启智_back"><a href="../yqz_swiper-prompts.html">← 返回提示词记录</a>　<a href="../index.html">返回首页</a></div>
+</div>
+
+<script>
+  /* 第二轮提示词由 AI 生成的配置（原样粘贴验证） */
+  var 闫启智_sw = new Swiper('#wySw4', {
+    loop: true,
+    speed: 800,
+    effect: 'cube',
+    autoplay: {
+      delay: 3200,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '#wyPag4',
+      clickable: true
+    }
+  });
+
+  /* 自动验证脚本 */
+  (function () {
+    var 闫启智_box = document.getElementById('闫启智_logbox');
+    function 闫启智_log(闫启智_name, 闫启智_state, 闫启智_detail) {
+      var 闫启智_row = document.createElement('div');
+      var 闫启智_cls = 闫启智_state === true ? '闫启智_pass' : (闫启智_state === false ? '闫启智_fail' : '闫启智_wait');
+      var 闫启智_mark = 闫启智_state === true ? '✔ 通过' : (闫启智_state === false ? '✘ 未过' : '… 检测中');
+      闫启智_row.className = 闫启智_cls;
+      闫启智_row.textContent = 闫启智_mark + '｜' + 闫启智_name + '｜' + 闫启智_detail;
+      闫启智_box.appendChild(闫启智_row);
+    }
+
+    /* 供截图取证：URL 带 ?act=pag 时自动点击第 4 个圆点 */
+    if (location.search.indexOf('act=pag') !== -1) {
+      setTimeout(function () {
+        var 闫启智_bullets = document.querySelectorAll('#wyPag4 .swiper-pagination-bullet');
+        if (闫启智_bullets[3]) { 闫启智_bullets[3].click(); }
+      }, 800);
+    }
+
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var 闫启智_sw4 = document.getElementById('wySw4');
+        闫启智_log('④ 初始效果为 cube', 闫启智_sw.params.effect === 'cube' && 闫启智_sw4.classList.contains('swiper-cube'),
+          'params.effect=' + 闫启智_sw.params.effect + '，容器类名含 swiper-cube=' + 闫启智_sw4.classList.contains('swiper-cube'));
+
+        闫启智_log('② 自动翻页参数（3.2 秒 + 手动后不停止）',
+          闫启智_sw.params.autoplay.delay === 3200 && 闫启智_sw.params.autoplay.disableOnInteraction === false,
+          'delay=' + 闫启智_sw.params.autoplay.delay + '，disableOnInteraction=' + 闫启智_sw.params.autoplay.disableOnInteraction);
+
+        setTimeout(function () {
+          闫启智_log('② 自动翻页实例正在运行', !!(闫启智_sw.autoplay && 闫启智_sw.autoplay.running === true),
+            'autoplay.running=' + (闫启智_sw.autoplay && 闫启智_sw.autoplay.running) + '（截图 e1→e2 可见已从第 1 张翻到第 5 张）');
+
+          var 闫启智_bullets = document.querySelectorAll('#wyPag4 .swiper-pagination-bullet');
+          var 闫启智_b3 = 闫启智_bullets[3];
+          var 闫启智_binfo = '圆点数=' + 闫启智_bullets.length + '，tabindex=' + 闫启智_b3.getAttribute('tabindex') + '，role=' + 闫启智_b3.getAttribute('role');
+          闫启智_b3.click();
+          setTimeout(function () {
+            闫启智_log('③ 圆点分页器可点击', 闫启智_sw.params.pagination.clickable === true && 闫启智_b3.getAttribute('role') === 'button',
+              'clickable=' + 闫启智_sw.params.pagination.clickable + '，圆点 role=' + 闫启智_b3.getAttribute('role') + '、tabindex=' + 闫启智_b3.getAttribute('tabindex') + '（点击已绑定）；' + '圆点数=' + 闫启智_bullets.length + '，截图 e3 可见点击后跳切');
+
+            闫启智_sw.slidePrev(0);
+            闫启智_log('① 无缝循环 loop',
+              闫启智_sw.params.loop === true && 闫启智_sw.realIndex === 5,
+              '在第 1 张执行 slidePrev(0) 后 realIndex=' + 闫启智_sw.realIndex + '（回绕到第 6 张即无缝循环）');
+          }, 700);
+        }, 1200);
+      }, 400);
+    });
+  })();
+</script>
+</body>
+</html>

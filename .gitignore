@@ -17,3 +17,7 @@ __pycache__/
 
 # 本地 http server 输出
 server.out
+
+.trae-html-share-packages/
+8/
+zz_harness.html
