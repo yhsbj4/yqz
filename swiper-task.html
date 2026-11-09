@@ -80,6 +80,22 @@
   .wy-back a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,43,91,.15)}
 
   footer{text-align:center;margin-top:34px;color:#9ca3af;font-size:13px;line-height:2}
+
+  /* 任务一 · 两轮提示词与验证图文 */
+  .闫启智_log{margin-top:24px;border-top:1px dashed #dbe4ff;padding-top:20px}
+  .闫启智_log .闫启智_log-title{font-size:16px;color:#0f2b5b;margin-bottom:8px}
+  .闫启智_log h4{font-size:13.5px;color:#b45309;margin:18px 0 7px}
+  .闫启智_prompt{background:#0f2b5b;color:#dbe6f8;border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.9;white-space:pre-wrap;word-break:break-word}
+  .闫启智_prompt b{color:#fbbf24}
+  .闫启智_code{background:#101827;color:#dbe6f8;border-radius:12px;padding:14px 16px;font-family:Consolas,monospace;font-size:12.5px;line-height:1.7;overflow-x:auto;white-space:pre}
+  .闫启智_code .闫启智_c{color:#7d8aa5}
+  .闫启智_note{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 14px;font-size:13px;color:#9a3412;line-height:1.9;margin:8px 0}
+  .闫启智_note.闫启智_bad{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+  .闫启智_shotgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 4px}
+  .闫启智_shotgrid figure{border:1px solid #e8ecf5;border-radius:12px;overflow:hidden;background:#fff}
+  .闫启智_shotgrid img{width:100%;display:block}
+  .闫启智_shotgrid figcaption{font-size:12px;color:#4b5563;padding:8px 10px;background:#f8fafc;line-height:1.7}
+  @media(max-width:640px){.闫启智_shotgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -126,6 +142,64 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="闫启智_log">
+      <p class="闫启智_log-title"><b>📝 任务一 · 提示词工程师：两轮提示词与验证图文</b></p>
+      <p class="wy-txt">作业任务一的目标对象是演示四的 <code>#wySw4</code>：让 AI 生成 <code>new Swiper('#wySw4', {...})</code> 配置，满足 ① 无缝循环 ② 3.2 秒自动翻页且手动操作后不停止 ③ 圆点分页器可点击 ④ 初始效果为 cube。至少迭代 2 轮，每轮提示词与 AI 回答均保留，并粘进页面逐项验证。</p>
+
+      <h4>第 1 轮提示词（有遗漏）</h4>
+      <div class="闫启智_prompt">帮我写一个 Swiper 配置代码 new Swiper('#wySw4', {...})，要求：
+1. 无缝循环
+2. 3.2 秒自动翻页
+3. 圆点分页器可以点击
+4. 切换效果用 cube
+请直接给我可以粘贴运行的代码。</div>
+
+      <h4>AI 第 1 轮回答</h4>
+      <div class="闫启智_code">new Swiper('#wySw4', {
+  loop: true,                                    <span class="闫启智_c">// ① 无缝循环</span>
+  effect: 'cube',                                <span class="闫启智_c">// ④ 初始效果为 cube</span>
+  autoplay: { delay: 3200 },                     <span class="闫启智_c">// ② 自动翻页（漏了交互后不停止）</span>
+  pagination: { el: '#wyPag4', clickable: true } <span class="闫启智_c">// ③ 圆点可点击</span>
+});</div>
+
+      <div class="闫启智_note 闫启智_bad">✘ 验证发现：①③④ 表现正常；② 只满足一半——用鼠标拖动一次图片之后，自动翻页永久停止。原因是 <code>autoplay.disableOnInteraction</code> 默认为 <code>true</code>，用户一交互就停止，而第 1 轮提示词没有描述"交互之后怎么办"。</div>
+
+      <div class="闫启智_shotgrid">
+        <figure><img src="evidence/e1-cube-initial.png" alt="第 1 轮验证：初始 cube 效果"><figcaption>图 e1：初始即为第 1 张，容器带 cube 3D 效果 —— 证明需求 ①④</figcaption></figure>
+        <figure><img src="evidence/e2-autoplay-advanced.png" alt="第 1 轮验证：自动翻页到第 5 张"><figcaption>图 e2：4.6 秒时已自动翻到第 5 张，右侧可见立方体棱边 —— 证明需求 ②</figcaption></figure>
+      </div>
+
+      <h4>第 2 轮提示词（补全）</h4>
+      <div class="闫启智_prompt">上一次给的配置有个问题：我用手拖动图片后，自动翻页就停了。请修改 new Swiper('#wySw4', {...}) 配置，要求：
+1. 无缝循环
+2. 3.2 秒自动翻页，<b>并且手动拖动、点击之后自动翻页不能停</b>——Swiper 里控制这个行为的参数是哪个？请写清楚
+3. 圆点分页器可点击
+4. 初始切换效果为 cube</div>
+
+      <h4>AI 第 2 轮回答（最终采用）</h4>
+      <div class="闫启智_code">new Swiper('#wySw4', {
+  loop: true,                      <span class="闫启智_c">// ① 无缝循环</span>
+  speed: 800,
+  effect: 'cube',                  <span class="闫启智_c">// ④ 初始效果为 cube</span>
+  autoplay: {
+    delay: 3200,                   <span class="闫启智_c">// ② 3.2 秒自动翻页</span>
+    disableOnInteraction: false    <span class="闫启智_c">// ② 手动操作后不停止（关键补充）</span>
+  },
+  pagination: {
+    el: '#wyPag4',
+    clickable: true                <span class="闫启智_c">// ③ 圆点分页器可点击</span>
+  }
+});</div>
+
+      <div class="闫启智_shotgrid">
+        <figure><img src="evidence/e3-pagination-click.png" alt="第 2 轮验证：点击圆点后自动翻页继续"><figcaption>图 e3：点击第 4 个圆点跳切后，自动翻页仍在继续 —— 证明需求 ②③</figcaption></figure>
+        <figure><img src="evidence/e4-verify-results.png" alt="第 2 轮验证：五项断言全部通过"><figcaption>图 e4：验证页 5 项自动断言全部通过，可打开验证页复现</figcaption></figure>
+      </div>
+
+      <div class="闫启智_note">✔ 逐项验证：① 循环——在第 1 张执行 <code>slidePrev(0)</code>，<code>realIndex</code> 回绕为 5；② 自动翻页且手动后不停——<code>delay=3200</code>、<code>disableOnInteraction=false</code>、<code>autoplay.running=true</code>；③ 圆点可点击——<code>clickable=true</code>，圆点带 <code>role=button</code> / <code>tabindex=0</code>；④ cube——<code>params.effect='cube'</code>，容器含 <code>swiper-cube</code> 类。五项断言全部通过。</div>
+      <p class="wy-txt">验证页：<a href="evidence/sw4-cube-verify.html">evidence/sw4-cube-verify.html</a>　·　完整答辩记录：<a href="yqz_swiper-prompts.html">yqz_swiper-prompts.html</a></p>
     </div>
   </div>
 
